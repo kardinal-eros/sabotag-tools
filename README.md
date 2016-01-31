@@ -21,7 +21,7 @@ install.packages("raster")
 library(devtools)
 library(raster)
 
-#	install dependency vegsoup from github mirror
+#	install packge from github
 install_github("kardinal-eros/sabotag-tools/pkg")
 
 library(sabotag)
