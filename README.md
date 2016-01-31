@@ -6,7 +6,7 @@ An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft (
 The package provides the following functionality.
 
 + Create mapping grid according to Niklfeld (1978).
-+ Query coordinates for cell of mapping grid.
++ Query cell identifier with coordinates.
 
 Installation
 ------------
