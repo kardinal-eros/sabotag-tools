@@ -22,7 +22,7 @@ library(devtools)
 library(raster)
 
 #	install dependency vegsoup from github mirror
-install_github("kardinal-eros/sabotag/pkg")
+install_github("kardinal-eros/sabotag-tools/pkg")
 
 library(sabotag)
 ```
