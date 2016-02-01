@@ -15,7 +15,7 @@ function (extent, resolution = "CELL") {
 		if (resolution == "CELL") { xx <-  5; yy <- 3 }
 
 		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
-		r <- raster(pretty(e, resolution = resolution),
+		r <- raster(e, # pretty(e, resolution = resolution),
 			res = c(xx / 60, yy / 60), crs = "+init=epsg:4326")
 		r <- as(r, "SpatialPolygons")
 
