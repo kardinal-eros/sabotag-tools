@@ -4,14 +4,10 @@ function (x, ...) {
 	sort(floor(x) + seq(-1, 1, by = ... / 60))	
 }	
 
-.min <-
+.max <- .min <-
 function (x, ...) {
 	i <- .interval(x, ...)
 	i [ findInterval(x, i) ]
-}
-.max <- function (x, ...) {
-	i <- .interval(x, ...)
-	i [ findInterval(x, i) + 1 ]
 }
 
 if (!isGeneric("pretty")) {
@@ -30,9 +26,11 @@ setMethod("pretty",
 		RESOLUTION <- c("GRID", "CELL")
 		resolution <- match.arg(resolution, RESOLUTION, several.ok = FALSE)
 		
-		if (resolution == "GRID") xx <- 10; yy <- 6
-		if (resolution == "CELL") xx <- 5; yy <- 3
-
+		if (resolution == "GRID") { xx <- 10; yy <- 6 }	
+		if (resolution == "CELL") { xx <-  5; yy <- 3 }
+		
+		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")		
+		
 		r <- extent(c(
 		.min(xmin(x), xx), .max(xmax(x), xx),
 		.min(ymin(x), yy), .max(ymax(x), yy)) )
