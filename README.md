@@ -1,9 +1,11 @@
-sabotag
-=============
+sabotag R-package
+=================
 
-An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft (SaBotAg).
+![](README.png)
 
-The package provides the following functionality.
+An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html)
+
+The package has  the following functionality.
 
 + Create mapping grid according to Niklfeld (1978).
 + Query cell identifier with coordinates.
