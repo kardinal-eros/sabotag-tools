@@ -1,4 +1,8 @@
 exportPattern("^[[:alpha:]]+")
 
+import("methods")
 import("raster")
 import("sp")
+
+## Registration of S3 methods
+#S3method(pretty, Extent)

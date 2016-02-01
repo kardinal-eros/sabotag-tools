@@ -8,13 +8,17 @@ Create Grid Based on Extent
 Create grid based on extent object defined in package \pkg{raster}.
 }
 \usage{
-floragrid(extent)
+floragrid(extent, resolution = "CELL")
 }
 
 \arguments{
   \item{extent}{
-An object where an \verb{extent} methods extrist or a Spatial* object bdefined in package \pkg{sp}.
+An object where an \verb{extent} methods existst or a Spatial* object befined in package \pkg{sp}.
 }
+  \item{resolution}{
+One of \verb{"GRID"} or \verb{"CELL"}.
+}
+
 }
 \details{
 Nothing here yet.

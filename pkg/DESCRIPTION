@@ -1,12 +1,12 @@
 Package: sabotag
 Type: Package
 Title: Tools of the Salzburger Botanische Arbeitsgemeinschaft (SaBotAg)
-Version: 0.1-1
-Date: 2016-01-31
+Version: 0.1-2
+Date: 2016-02-301
 Authors@R: c(person("Roland", "Kaiser", role = c("aut", "cre"),
 					 email = "kardinal.eros@gmail.com"))
 Maintainer: Roland Kaiser <kardinal.eros@gmail.com>
-Depends: R (>= 3.0.1), raster, sp
+Depends: R (>= 3.0.1), raster, sp, methods
 Description: An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft (SaBotAg).
 License: GPL (>= 2)
 Encoding: UTF-8
