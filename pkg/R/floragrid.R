@@ -1,19 +1,20 @@
 floragrid <-
 function (extent, resolution = "CELL") {
-		if (missing(extent)) stop("plese supply exent")
-					
+		if (missing(extent)) stop("please supply exent", call. = FALSE)
+
 		if (inherits(extent, "Extent") | inherits(extent, "Spatial")) {
 			e <- extent(extent)
 		} else {
-			stop("extent must be an Extent of Spatial* object")			
+			stop("extent must be an Extent of Spatial* object")
 		}
 
 		RESOLUTION <- c("GRID", "CELL")
 		resolution <- match.arg(resolution, RESOLUTION, several.ok = FALSE)
+		
+		if (resolution == "GRID") { xx <- 10; yy <- 6 }
+		if (resolution == "CELL") { xx <-  5; yy <- 3 }
 
-		if (resolution == "GRID") xx <- 10; yy <- 6
-		if (resolution == "CELL") xx <- 5; yy <- 3
-				
+		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
 		r <- raster(pretty(e, resolution = resolution),
 			res = c(xx / 60, yy / 60), crs = "+init=epsg:4326")
 		r <- as(r, "SpatialPolygons")
@@ -24,5 +25,5 @@ function (extent, resolution = "CELL") {
 	
 		r <- SpatialPolygonsDataFrame(r, d)
 
-		return(r)	
+		return(r)
 	}
