@@ -4,10 +4,16 @@ function (x, ...) {
 	sort(floor(x) + seq(-1, 1, by = ... / 60))	
 }	
 
-.max <- .min <-
+.min <-
 function (x, ...) {
 	i <- .interval(x, ...)
 	i [ findInterval(x, i) ]
+}
+
+.max <- 
+function (x, ...) {
+	i <- .interval(x, ...)
+	i [ findInterval(x, i) + 1]
 }
 
 if (!isGeneric("pretty")) {
