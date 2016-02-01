@@ -1,7 +1,7 @@
-sabotag R-package
+![](README.png) *R package*
 =================
 
-![](README.png)
+
 
 An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html)
 
