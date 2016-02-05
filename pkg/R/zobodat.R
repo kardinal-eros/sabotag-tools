@@ -31,4 +31,6 @@ zobodat <- function (x) {
 	coordinates(x) <- ~ Laenge + Breite
 	proj4string(x) <- CRS("+init=epsg:4326")
 	
+	return(x)
+	
 }
