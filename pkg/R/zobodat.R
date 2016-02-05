@@ -14,6 +14,12 @@ zobodat <- function (x) {
 	#	for safty
 	i <- x$Laenge != "" & x$Breite != ""
 	x <- x[ i, ]
+	
+	#	if matrix is empty
+	if (nrow(x) == 0) {
+		warning("no observations with coordinates", call. = FALSE)
+		return(NULL)		
+	}	
 		
 	#	add sign to coordinates
 	i <- x$E.W == "W"
