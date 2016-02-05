@@ -5,8 +5,8 @@ An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft
 
 The package has  the following functionality.
 
-+ Create mapping grid according to Niklfeld (1978).
-+ Query cell identifier with coordinates.
++ Create mapping grid for the recording of the vascular plant flora in Central Europe (»Kartierung der Flora Mitteleuropas«) according to Niklfeld (1978); in Austria generally known as »Raster der floristischen Kartierung« or briefly »(Floren-)Quadranten«.
++ Query cell identifier (»Quadranten-Nummer«) of mapping grid by providing coordinates.
 
 Installation
 ------------
