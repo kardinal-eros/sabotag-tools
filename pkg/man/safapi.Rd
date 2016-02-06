@@ -8,7 +8,8 @@ Locality Description for Austria
 Query \emph{Standortsanalyse} server to get locality description for a given longitude and latitude. \verb{safapi} stands for Standorts-Analyse-Fundort-API. The server infrastructure is kindly provided by Albin Blaschka.
 }
 \usage{
-safapi(lng, lat, layers, format = "txt", service = "geoapi", server = "46.252.27.126", key = "574nd0r754n4ly53", sp = FALSE)
+safapi(lng, lat, layers, format = "txt", service = "geoapi",
+       server = "46.252.27.126", key = "574nd0r754n4ly53", sp = FALSE)
 }
 
 \arguments{
