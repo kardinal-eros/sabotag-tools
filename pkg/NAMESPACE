@@ -3,6 +3,7 @@ exportPattern("^[[:alpha:]]+")
 import("methods")
 import("raster")
 import("sp")
+import("curl")
 
 ## Registration of S3 methods
 #S3method(pretty, Extent)

@@ -6,7 +6,7 @@ Date: 2016-02-06
 Authors@R: c(person("Roland", "Kaiser", role = c("aut", "cre"),
 					 email = "kardinal.eros@gmail.com"))
 Maintainer: Roland Kaiser <kardinal.eros@gmail.com>
-Depends: R (>= 3.0.1), methods, raster, sp
+Depends: R (>= 3.0.1), methods, raster, sp, curl
 Suggests: jsonlite, rgdal, maps
 Description: An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft (SaBotAg).
 License: GPL (>= 2)

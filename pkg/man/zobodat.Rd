@@ -1,24 +1,36 @@
 \name{zobodat}
 \alias{zobodat}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\alias{zobodat.csv}
+
+
 \title{
 Data From the Zobodat Database
 }
 \description{
-Convert downloaded CSV-files from the Zobodat to \verb{SptaialPointsDataFrame}.
+Query Zobodat voucher database (\url{http://www.zobodat.at}) and convert downloaded CSV-file to \verb{SptaialPointsDataFrame}.
 }
 \usage{
-zobodat(x)
+zobodat.csv(x)
+
+zobodat(genus, species, file)
 }
 
 \arguments{
   \item{x}{
 File path.
 }
-
+  \item{genus}{
+Genus.
+}
+  \item{species}{
+Species.
+}
+  \item{file}{
+Filename.
+}
 }
 \details{
-The function discards all observation where coordinates are missing.
+The function discards all observations where coordinates are missing.
 }
 \value{
 \verb{SpatialPointsDataFrame}.
@@ -30,7 +42,13 @@ Roland Kaiser
   \code{\link[dismo]{gbif}} in package \pkg{dismo}
 }
 \examples{
-# zobodat(x)
+\dontrun{
+r <- zobodat("Poa", "pratensis")
+
+require(maps)
+map(region ="Austria")
+points(r)
+}
 }
 \keyword{ spatial }
 \keyword{ database }
