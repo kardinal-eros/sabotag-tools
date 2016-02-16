@@ -48,6 +48,9 @@ Depending on argument \verb{format} a charactarer vector, a list, or if \verb{sp
 \author{
 Roland Kaiser
 }
+\seealso{
+\code{\link{bergfex}}
+}
 \examples{
 r <- safapi(13, 47, c("geb", "q"), "txt")
 str(r)
