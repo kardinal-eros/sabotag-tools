@@ -9,6 +9,7 @@ The package has  the following functionality.
 + Query cell identifier (»Quadranten-Nummer«) of mapping grid by providing coordinates.
 + Query locality description (reverse geocoding) using Albin Blaschka's private server.
 + Query [Zobodat](http://www.zobodat.at/belege.php) voucher data base.
++ Query [Bergfex](http://www.bergfex.at) server for Austrian toponyms.
 
 Installation
 ------------
