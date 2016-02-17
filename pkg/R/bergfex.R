@@ -1,4 +1,4 @@
-.bergfex1 <- function (q, sp) {
+.bergfex1 <- function (q, sp, first) {
 	requireNamespace("jsonlite")
 	
 	url <- "http://www.bergfex.at/ajax/gmap/names/?q="
@@ -6,12 +6,17 @@
 
 	r <- jsonlite::fromJSON(url)
 	
-	if (sp) r <- .jason2sp(r, multi = TRUE)
+	if (sp) {
+		r <- .jason2sp(r, multi = TRUE)
+		if (first) r <- r[1, ]
+	} else {
+		if (first) r$data <- r$data[1, ]
+	}
 	
 	return(r)
 }
 
-.bergfex2 <- function (lng, lat, sp) {
+.bergfex2 <- function (lng, lat, sp, first) {
 	requireNamespace("jsonlite")
 	
 	lng <- paste0(lng, ifelse(lng >= 0, "E", "W"))
@@ -23,23 +28,28 @@
 	
 	r <- jsonlite::fromJSON(url)
 	
-	if (sp) r <- .jason2sp(r, multi = TRUE)
+	if (sp) {
+		r <- .jason2sp(r, multi = TRUE)
+		if (first) r <- r[1, ]
+	} else {
+		if (first) r$data <- r$data[1, ]
+	}
 	
 	return(r)
 }
 
 bergfex <-
-function (lng, lat, q, sp = TRUE) {
+function (lng, lat, q, sp = TRUE, first = FALSE) {
 	requireNamespace("jsonlite")
 	if (missing(lng) | missing(lat)) {
 		if (missing(q)) {
-			stop("please provide geographic coordinates (both 'lng', 'lat') or a query string ('q')")	
+			stop("please provide geographic coordinates (both 'lng', 'lat') or a query string ('q')")
 		} else {
-			r <- .bergfex1(q, sp = sp)	
+			r <- .bergfex1(q, sp = sp, first = first)
 		}
 	} else {
-		r <- .bergfex2(lng = lng, lat = lat, sp = sp)
+		r <- .bergfex2(lng = lng, lat = lat, sp = sp, first = first)
 	}
-		
+	
 	return(r)
 }
