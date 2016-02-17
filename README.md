@@ -25,10 +25,7 @@ You may directly install the package from GitHub using the below set of commands
 ```R
 # if not already installed
 install.packages("devtools")
-install.packages("raster")
-
 library(devtools)
-library(raster)
 
 #	install packge from github
 install_github("kardinal-eros/sabotag-tools/pkg")
