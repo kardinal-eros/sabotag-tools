@@ -5,7 +5,7 @@ Build status
 ------------
 
 [![Travis-CI Build Status](https://travis-ci.org/kardinal-eros/sabotag-tools.svg?branch=master)](https://travis-ci.org/kardinal-eros/sabotag-tools)
-<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sabotag-tools)](http://cran.r-project.org/package=sabotag-tools) -- >
+<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sabotag-tools)](http://cran.r-project.org/package=sabotag-tools) -->
 
 An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html)
 
