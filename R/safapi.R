@@ -27,7 +27,8 @@ function (lng, lat, layers, format = "txt", service = "geoapi", server = "46.252
 		"&format=", format)
 
 	if (sp) {
-		r <- rgdal::readOGR(url, 'OGRGeoJSON')
+		stop("at the moment using package rgdal is not suppoerted")
+		# r <- rgdal::readOGR(url, 'OGRGeoJSON')
 	} else {		
 		r  <- switch(format,
 			txt =  { r <- readLines(url) },
