@@ -1,2 +1,4 @@
 language: R
 cache: packages
+r_binary_packages:
+  - rgdal
