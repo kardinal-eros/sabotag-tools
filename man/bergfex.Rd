@@ -8,7 +8,7 @@ Locality Description for Bergfex.at Webpage
 Query \url{http://www.bergfex.at} server to get locality description for a given longitude and latitude.
 }
 \usage{
-bergfex(lng, lat, q, sp = TRUE, first = FALSE)
+bergfex(lng, lat, q, sp = FALSE, first = FALSE)
 }
 
 \arguments{

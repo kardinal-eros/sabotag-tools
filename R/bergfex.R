@@ -39,7 +39,7 @@
 }
 
 bergfex <-
-function (lng, lat, q, sp = TRUE, first = FALSE) {
+function (lng, lat, q, sp = FALSE, first = FALSE) {
 	requireNamespace("jsonlite")
 	if (missing(lng) | missing(lat)) {
 		if (missing(q)) {
