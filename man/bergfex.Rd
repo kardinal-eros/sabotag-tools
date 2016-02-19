@@ -45,7 +45,7 @@ r <- bergfex(lng = 14.642202, lat = 47.530278, sp = FALSE)
 class(r)
 str(r)
 
-r <- bergfex(lng = 14.642202, lat = 47.530278)
+r <- bergfex(lng = 14.642202, lat = 47.530278, sp = TRUE)
 class(r)
 head(r@data)
 
