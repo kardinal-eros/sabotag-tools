@@ -51,7 +51,7 @@ head(r@data)
 
 bergfex(lng = 14.642202, lat = 47.530278, first = TRUE, sp = FALSE)
 
-r <- bergfex(q = "Kölblalm")
+r <- bergfex(q = "Kölblalm", sp = TRUE)
 head(r@data)
 coordinates(r)
 
