@@ -28,7 +28,7 @@ install.packages("devtools")
 library(devtools)
 
 #	install packge from github
-install_github("kardinal-eros/sabotag-tools/pkg")
+install_github("kardinal-eros/sabotag-tools")
 
 library(sabotag)
 ```
