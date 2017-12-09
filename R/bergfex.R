@@ -53,3 +53,13 @@ function (lng, lat, q, sp = FALSE, first = FALSE) {
 	
 	return(r)
 }
+
+bergfex2 <-
+function (x) {
+	r <- apply(coordinates(x), 1, function (x) {
+			.bergfex2(lng = x[ 1 ], lat = x[ 2 ], sp = TRUE, first = TRUE)
+		} )
+	r <- do.call("rbind", r)	
+	
+	return(r)
+}

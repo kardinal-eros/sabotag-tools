@@ -9,6 +9,8 @@ Query \url{http://www.bergfex.at} server to get locality description for a given
 }
 \usage{
 bergfex(lng, lat, q, sp = FALSE, first = FALSE)
+
+bergfex2(x)
 }
 
 \arguments{
@@ -27,6 +29,9 @@ If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{
   \item{first}{
 If \verb{TRUE} return only a single hit, the top most (nearby) one.
 }
+  \item{x}{
+object of class \verb{SpatialPointsDataFrame}.
+}
 }
 \details{
 Nothing here yet.
@@ -38,7 +43,7 @@ A \verb{list} or \verb{SpatialPointsDataFrame} with \code{CRS("+init=epsg:4326")
 Roland Kaiser
 }
 \seealso{
-\code{\link{bergfex}}
+\code{\link{geocode}}
 }
 \examples{
 r <- bergfex(lng = 14.642202, lat = 47.530278, sp = FALSE)
@@ -56,6 +61,14 @@ head(r@data)
 coordinates(r)
 
 bergfex(q = "Schwaitlalm", sp = FALSE, first = TRUE)
+
+
+x <- data.frame(accuracy = 10, x = 13:16, y = 48)
+coordinates(x) <- ~x+y
+proj4string(x) <- CRS("+init=epsg:4326")
+
+bergfex2(x)
+
 }
 \keyword{ spatial }
 \keyword{ database }
