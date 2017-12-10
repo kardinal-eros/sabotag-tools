@@ -18,13 +18,13 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 		}
 	}
 
-	#	test if we have column named a 'accuracy' or 'precision'
+	#	test if we have columns named a 'accuracy' or 'precision'
 	p <- sapply(c("accuracy", "precision"),
 		function (y) agrep(y, names(x)))
 		
 	l <- sapply(p, length) > 0
 	if (any(l)) {
-		p <- unlist(p[which(l)])
+		p <- unlist(p[ which(l) ])
 	} else {
 		message("variables accuracy or precision not found")
 	}
@@ -34,7 +34,7 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 			p <- as.numeric(p)
 			if (any(is.na(p))) {
 				na <- 20
-				p[is.na(p)] <- na
+				p[ is.na(p) ] <- na
 				message("replace NA with ", na)
 			}
 		}
@@ -42,9 +42,6 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 		message("multiple matches for variables accuracy or precision")
 		p <- rep(NA, nrow(x))
 	}
-
-
-
 
 	#	query polygons, fast
 	message("query administrative boundaries for Austria")
@@ -57,11 +54,11 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	
 	locality$PB[ !i ] <- paste("Bezirk", locality$PB)[ !i ]
 	locality <- apply(locality, 1, paste, collapse = ", ")
-	locality[ i ] <- NA
-	
+	locality[ i ] <- NA
+
 	#	query bergfex server
 	if (bergfex) {
-		message("query bergfex for toponyms, be patient")			
+		message("query bergfex for toponyms, be patient")
 		toponym <- bergfex2(x)@data
 		type <- toponym$Typ
 		toponym <- toponym$Name
@@ -70,11 +67,10 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	locality <- paste(locality, toponym, sep = ", ")
 	
 	#	query elevation
-	message("query SRTM3 data set for elevations")	
+	message("query SRTM3 data set for elevations")
 	masl <- apply(coordinates(x), 1, function (x) {
-		GNsrtm3(lat = x[2], lng = x[1])[[1]]		
-	})
-	
+		GNsrtm3(lat = x[ 2 ], lng = x[ 1 ])[[ 1 ]]
+		} )
 
 	#	format accuracy string
 	p <- paste0("\u00B1", p, "m")
@@ -92,7 +88,7 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	#	results object
 	r <- data.frame(coordinates, locality, austria = !i, stringsAsFactors = FALSE)
 	
-	#	for those poinbts outside polygon coverage, use bergfex query
+	#	for those points outside polygon coverage, use bergfex query instead
 	i <- !r$austria
 	ri <- bergfex2(x[ i, ])@data
 	r$locality[ i ] <- paste(ri$Staat, ri$Region, ri$Name, sep = ", ")
@@ -101,5 +97,6 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 		coordinates(r) <- coordinates(x)
 		proj4string(r) <- CRS("+init=epsg:4326")
 	}
+	
 	return(r)
 }
