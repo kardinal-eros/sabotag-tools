@@ -29,7 +29,7 @@ Not used.
 }
 }
 \details{
-The function returns a string composed of country (Staat), state (Bundesland), district (Bezirk) and municiplaity (politische Gemeinde) aswell as a formated coordinate and elevation description.
+The function returns a string composed of country (Staat), state (Bundesland), district (Bezirk) and municiplaity (politische Gemeinde) aswell as a formated coordinate and elevation description. It is espaecially tailored for the region of Austria (and it's neighbouring countries). Setting \verb{bergfex = TRUE} will addditionally append a local toponym.
 }
 \value{
 A \verb{data.frame} or \verb{SpatialPointsDataFrame} with \code{CRS("+init=epsg:4326")}.

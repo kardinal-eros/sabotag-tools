@@ -90,8 +90,13 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	
 	#	for those points outside polygon coverage, use bergfex query instead
 	i <- !r$austria
-	ri <- bergfex2(x[ i, ])@data
-	r$locality[ i ] <- paste(ri$Staat, ri$Region, ri$Name, sep = ", ")
+	if (any(i)) {
+		ri <- bergfex2(x[ i, ])@data
+		r$locality[ i ] <- paste(ri$Staat, ri$Region, ri$Name, sep = ", ")
+	}
+	
+	#	clean up remove column
+	r <- r[ , -grep("austria", names(r))]
 	
 	if (sp) {
 		coordinates(r) <- coordinates(x)
