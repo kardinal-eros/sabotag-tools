@@ -1,9 +1,9 @@
 \name{bergfex}
 \alias{bergfex}
 \alias{bergfex2}
-
+\alias{nominatim2}
 \title{
-Locality Description for Bergfex.at Webpage
+Locality Descriptions from Web Services
 }
 \description{
 Query \url{http://www.bergfex.at} server to get locality description for a given longitude and latitude.
@@ -12,6 +12,8 @@ Query \url{http://www.bergfex.at} server to get locality description for a given
 bergfex(lng, lat, q, sp = FALSE, first = FALSE)
 
 bergfex2(x)
+
+nominatim2(x)
 }
 
 \arguments{

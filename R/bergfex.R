@@ -42,7 +42,7 @@
 			data = data.frame(
 				"ID" = NA, "Name" = NA, "Staat" = NA, "Region" = NA, "Hoehe" = NA,
 				"GeoBreite" = 0, "GeoLaenge" = 0,
-				"ID_GeoPunkteTypen" = NA, "Typ" = NA, "Level" = NA, "Link" = NA),
+				"ID_GeoPunkteTypen" = NA, "Typ" = NA, "Level" = 0, "Link" = NA),
 			coordinate = list(lat = x, lng = y))
 		if (sp) {
 			r[[1]]$GeoLaenge = x
@@ -54,6 +54,7 @@
 	if (sp) {
 		r <- .jason2sp(r, multi = multi)
 		if (first) {
+			r <- r[ !is.na(r$Level), ]	
 			r <- r[1, ]
 		}	
 	} else {
@@ -85,9 +86,9 @@ function (lng, lat, q, sp = FALSE, first = FALSE) {
 #	query toponyms for coordinates
 #	only SpatialPointsDataFrame interface
 bergfex2 <-
-function (x) {
+function (x, first = TRUE) {
 	r <- apply(coordinates(x), 1, function (x) {
-			.bergfex2(lng = x[ 1 ], lat = x[ 2 ], sp = TRUE, first = TRUE)
+			ri <- .bergfex2(lng = x[ 1 ], lat = x[ 2 ], sp = TRUE, first = first)
 		} )
 	r <- do.call("rbind", r)	
 	

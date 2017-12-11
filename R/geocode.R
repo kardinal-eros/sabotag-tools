@@ -90,8 +90,9 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	#	for those points outside polygon coverage, use bergfex query instead
 	i <- !r$austria
 	if (any(i)) {
-		ri <- bergfex2(x[ i, ])@data
-		r$locality[ i ] <- paste(ri$Staat, ri$Region, ri$Name, sep = ", ")
+		message("(some) coordinates outside Austria, now quering openstreetmap, be patient")
+		ri <- nominatim2(x[ i, ])@data
+		r$locality[ i ] <- apply(as.matrix(ri), 1, paste, collapse = ", ")
 	}
 	
 	#	clean up remove column
