@@ -1,5 +1,6 @@
 \name{bergfex}
 \alias{bergfex}
+\alias{bergfex2}
 
 \title{
 Locality Description for Bergfex.at Webpage

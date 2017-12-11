@@ -1,3 +1,5 @@
+#	hidden function to query coordiantes for toponyms
+#	single coordinate pair interface 
 .bergfex1 <- function (q, sp, first) {
 	requireNamespace("jsonlite")
 	
@@ -16,28 +18,54 @@
 	return(r)
 }
 
-.bergfex2 <- function (lng, lat, sp, first) {
+#	hidden function to query toponyms for coordinates
+#	single coordinate pair interface
+.bergfex2 <- function (lng, lat, sp, first, multi = TRUE) {
 	requireNamespace("jsonlite")
-	
+#	lng = 11
+#	lat = 48
+	x <- lng
+	y <- lat
 	lng <- paste0(lng, ifelse(lng >= 0, "E", "W"))
 	lat <- paste0(lat, ifelse(lat >= 0, "N", "S"))
 
 	url <- "http://www.bergfex.at/ajax/gmap/names/?q="
-	url <- paste0(url,lat,",", lng)
+	url <- paste0(url, lat, ",", lng)
 
 	
 	r <- jsonlite::fromJSON(url)
 	
+	#	bergfex might not return an answer
+	if (length(r$data) == 0) {
+		message("bergfex retunred no answer for ", url)	
+		r <- list(
+			data = data.frame(
+				"ID" = NA, "Name" = NA, "Staat" = NA, "Region" = NA, "Hoehe" = NA,
+				"GeoBreite" = 0, "GeoLaenge" = 0,
+				"ID_GeoPunkteTypen" = NA, "Typ" = NA, "Level" = NA, "Link" = NA),
+			coordinate = list(lat = x, lng = y))
+		if (sp) {
+			r[[1]]$GeoLaenge = x
+			r[[1]]$GeoBreite = y
+		}	
+	}
+	
+	
 	if (sp) {
-		r <- .jason2sp(r, multi = TRUE)
-		if (first) r <- r[1, ]
+		r <- .jason2sp(r, multi = multi)
+		if (first) {
+			r <- r[1, ]
+		}	
 	} else {
-		if (first) r$data <- r$data[1, ]
+		if (first) {
+			r$data <- r$data[1, ]
+		}	
 	}
 	
 	return(r)
 }
 
+#	interface to query coordinate ('lng', 'lat') pairs or toponym (argument 'q')
 bergfex <-
 function (lng, lat, q, sp = FALSE, first = FALSE) {
 	requireNamespace("jsonlite")
@@ -54,6 +82,8 @@ function (lng, lat, q, sp = FALSE, first = FALSE) {
 	return(r)
 }
 
+#	query toponyms for coordinates
+#	only SpatialPointsDataFrame interface
 bergfex2 <-
 function (x) {
 	r <- apply(coordinates(x), 1, function (x) {

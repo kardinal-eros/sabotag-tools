@@ -62,10 +62,9 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 		toponym <- bergfex2(x)@data
 		type <- toponym$Typ
 		toponym <- toponym$Name
+		locality <- paste(locality, toponym, sep = ", ")
 	}
-	
-	locality <- paste(locality, toponym, sep = ", ")
-	
+		
 	#	query elevation
 	message("query SRTM3 data set for elevations")
 	masl <- apply(coordinates(x), 1, function (x) {

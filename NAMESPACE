@@ -5,6 +5,7 @@ import("raster")
 import("sp")
 import("curl")
 import("geonames")
+importFrom("utils", "read.csv")
 
 ## Registration of S3 methods
 #S3method(pretty, Extent)

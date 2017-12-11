@@ -52,13 +52,15 @@ Roland Kaiser
 \code{\link{bergfex}}
 }
 \examples{
+# the service is currently not available	
+\dontrun{
 r <- safapi(13, 47, c("geb", "q"), "txt")
 str(r)
 
 r <- safapi(13, 47, c("geb", "q"), "json")
 str(r)
 
-\dontrun{
+
 r <- safapi(13, 47, c("geb", "q"), "json", sp = TRUE)
 require(maps)
 map(regions = 'Austria')
