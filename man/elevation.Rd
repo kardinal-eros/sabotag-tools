@@ -2,7 +2,7 @@
 \alias{elevation}
 
 \title{
-Returns the Elevation Obtained from Open-Elevation API.
+Returns the Elevation Obtained from Open-Elevation API
 }
 
 \description{

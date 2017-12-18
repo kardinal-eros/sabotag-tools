@@ -2,7 +2,7 @@
 \alias{geocode.austria}
 
 \title{
-Locality Description for Austria's administrative Boundaries.
+Locality Description for Austria's administrative Boundaries
 }
 
 \description{
