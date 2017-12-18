@@ -15,7 +15,7 @@ Find nice interval in grid schema.
 }
 
 \usage{
-\S4method{pretty}{Extent}(x, resolution, ...)
+\S4method{pretty}{Extent}(x, resolution, add = 0, ...)
 }
 
 \arguments{
@@ -24,6 +24,9 @@ A \verb{Extent} or \verb{Spatial*} object.
 }
   \item{resolution}{
 One of \verb{"GRID"} or \verb{"CELL"}, see \code{\link{pretty}} for details.
+}
+  \item{add}{
+Add number of bordering rectangle of grid cells (\verb{"GRID"}) around computed extent.
 }
   \item{...}{
 Not used.
@@ -47,8 +50,13 @@ Roland Kaiser
 }
 
 \examples{
-pretty(extent(13,15,46,49))
-pretty(extent(13,15,46,49), "GRID")
+pretty(extent(13,15,46,48))
+
+e1 <- pretty(extent(13,15,46,48), "GRID")
+e2 <- pretty(extent(13,15,46,48), "GRID", add = 2)
+
+plot(floragrid(e2, resolution = "GRID"))
+plot(floragrid(e1, resolution = "GRID"), col = 2, add = TRUE)
 }
 
 \keyword{ spatial }

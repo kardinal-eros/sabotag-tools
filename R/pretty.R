@@ -22,7 +22,7 @@ if (!isGeneric("pretty")) {
 
 setMethod("pretty",
 	signature(x = "Extent"),
-	function (x, resolution, ...) {
+	function (x, resolution, add = 0, ...) {
 		if (missing(resolution)) {
 			resolution <- "CELL"
 			message("set \"CELL\" (5' x 3') as default resolution ")
@@ -37,9 +37,14 @@ setMethod("pretty",
 		
 		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")		
 		
+		addx <- addy <- 0
+		if (add > 0) {
+			addx <- xx / 60 * add
+			addy <- yy / 60 * add
+		}
 		r <- extent(c(
-		.min(xmin(x), xx), .max(xmax(x), xx),
-		.min(ymin(x), yy), .max(ymax(x), yy)) )
+		.min(xmin(x), xx) - addx, .max(xmax(x), xx) + addx,
+		.min(ymin(x), yy) - addy, .max(ymax(x), yy) + addy) )
 		
 		return(r)		
 		}	
