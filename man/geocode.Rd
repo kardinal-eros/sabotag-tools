@@ -24,7 +24,7 @@ Value for accuracy estimate. The function searches for a column named "accuracy"
 Return SpatialPointsDataFrame.
 }
   \item{bergfex}{
-Also query \code{\link{bergfex}} server to obtain local toponyms
+Also query \code{\link{bergfex}} server to obtain local toponyms.
 }
   \item{...}{
 Not used.

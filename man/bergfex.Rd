@@ -7,7 +7,7 @@ Locality Descriptions from Web Services
 }
 
 \description{
-Query \href{http://www.bergfex.at}{Bergfex} server to get locality description for a given longitude and latitude, or query coordinates of a toponym. 
+Query \href{http://www.bergfex.at}{Bergfex} server to get locality description for a given longitude and latitude, or query toponym for coordinates. 
 }
 
 \usage{
@@ -27,18 +27,18 @@ Longitude. Geographic coordinates (e.g. 47.510895)
 Query string.
 }
   \item{sp}{
-If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{rgdal}.
+If \verb{TRUE} return spatial object as defined in \pkg{sp}.
 }
   \item{first}{
 If \verb{TRUE} return only a single hit, the top most (nearby) one.
 }
   \item{x}{
-object of class \verb{SpatialPointsDataFrame}.
+Object of class \verb{SpatialPointsDataFrame}.
 }
 }
 
 \details{
-A \verb{bergfex} provides a single coordinate pair interface. \verb{bergfex2} allows the query to be based on a \verb{SpatialPointsDataFrame}.
+Function \verb{bergfex} provides a single coordinate pair interface. \verb{bergfex2} allows the query to be based on a \verb{SpatialPointsDataFrame}.
  
 }
 

@@ -28,11 +28,19 @@
 		stringsAsFactors = FALSE)
 	}
 	
-	#	either town or village should be returned
-	if (any(names(q) == "town")) {
-		r$PG <- q$town
+	#	either town, city or village should be returned
+	if (any(names(q) == "city")) {
+		r$PG <- q$city
 	} else {
-		r$PG <- q$village
+		if (any(names(q) == "town")) {
+			r$PG <- q$town			
+		} else {
+			if (any(names(q) == "village")) {
+			r$PG <- q$village		
+			} else {
+				r$PG <- q$hamlet
+			}
+		}
 	}
 	
 	if (sp) {

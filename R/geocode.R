@@ -1,6 +1,6 @@
 geocode.austria <-
 function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
-	aut <- data(aut)
+	data(aut)
 
 	#	dropped geonames dependency
 	#if (is.null(options()$geonamesUsername))
@@ -68,7 +68,7 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 		
 	#	query elevation
 	message("query elevations")
-	masl <- elevation(x)$elevation
+	masl <- elevation(x = x)$elevation
 	
 	#	format accuracy string
 	p <- paste0("\u00B1", p, "m")
@@ -86,7 +86,7 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	#	results object
 	r <- data.frame(coordinates, locality, austria = !i, stringsAsFactors = FALSE)
 	
-	#	for those points outside polygon coverage, use bergfex query instead
+	#	for those points outside polygon coverage, use OpenStreetMap query instead
 	i <- !r$austria
 	if (any(i)) {
 		message("(some) coordinates outside Austria, now quering openstreetmap, be patient")
