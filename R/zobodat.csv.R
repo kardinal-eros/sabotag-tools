@@ -7,7 +7,7 @@ function (x) {
 	#	substitue non-ASCII characters
 	names(x) <- gsub("\u00E4", "ae", names(x))
 	names(x) <- gsub("\u00F6", "oe", names(x))
-	#	discards observation withj missing coordiantes
+	#	discards observation with missing coordiantes
 	if ( any(is.na(x$Laenge)) | any(is.na(x$Breite)) ) {
 		i <- !is.na(x$Laenge) & !is.na(x$Breite)
 		x <- x[ i, ]

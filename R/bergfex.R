@@ -1,6 +1,7 @@
 #	hidden function to query coordiantes for toponyms
 #	single coordinate pair interface 
-.bergfex1 <- function (q, sp, first) {
+.bergfex1 <-
+function (q, sp, first) {
 	requireNamespace("jsonlite")
 	
 	url <- "http://www.bergfex.at/ajax/gmap/names/?q="
@@ -9,7 +10,7 @@
 	r <- jsonlite::fromJSON(url)
 	
 	if (sp) {
-		r <- .jason2sp(r, multi = TRUE)
+		r <- .jason2sp.bergfex(r, multi = TRUE)
 		if (first) r <- r[1, ]
 	} else {
 		if (first) r$data <- r$data[1, ]
@@ -20,10 +21,9 @@
 
 #	hidden function to query toponyms for coordinates
 #	single coordinate pair interface
-.bergfex2 <- function (lng, lat, sp, first, multi = TRUE) {
+.bergfex2 <-
+function (lng, lat, sp, first, multi = TRUE) {
 	requireNamespace("jsonlite")
-#	lng = 11
-#	lat = 48
 	x <- lng
 	y <- lat
 	lng <- paste0(lng, ifelse(lng >= 0, "E", "W"))
@@ -31,7 +31,6 @@
 
 	url <- "http://www.bergfex.at/ajax/gmap/names/?q="
 	url <- paste0(url, lat, ",", lng)
-
 	
 	r <- jsonlite::fromJSON(url)
 	
@@ -50,9 +49,8 @@
 		}	
 	}
 	
-	
 	if (sp) {
-		r <- .jason2sp(r, multi = multi)
+		r <- .jason2sp.bergfex(r, multi = multi)
 		if (first) {
 			r <- r[ !is.na(r$Level), ]	
 			r <- r[1, ]

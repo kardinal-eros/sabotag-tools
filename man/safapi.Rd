@@ -4,9 +4,11 @@
 \title{
 Locality Description for Austria
 }
+
 \description{
 Query \emph{Standortsanalyse} server to get locality description for a given longitude and latitude. \verb{safapi} stands for Standorts-Analyse-Fundort-API. The server infrastructure is kindly provided by Albin Blaschka.
 }
+
 \usage{
 safapi(lng, lat, layers, format = "txt", service = "geoapi",
        server = "46.252.27.126", key = "574nd0r754n4ly53", sp = FALSE)
@@ -39,20 +41,25 @@ If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{
 }
 
 }
+
 \details{
 Nothing here yet.
 }
+
 \value{
 Depending on argument \verb{format} a charactarer vector, a list, or if \verb{sp=TRUE} a SpatialPointsDataFrame.
 }
+
 \author{
 Roland Kaiser
 }
+
 \seealso{
 \code{\link{bergfex}}
 }
+
 \examples{
-# the service is currently not available	
+# the service is currently not available
 \dontrun{
 r <- safapi(13, 47, c("geb", "q"), "txt")
 str(r)
@@ -67,6 +74,7 @@ map(regions = 'Austria')
 plot(r, add = TRUE, col = 2)
 }
 }
+
 \keyword{ spatial }
 \keyword{ database }
 

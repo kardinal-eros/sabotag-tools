@@ -5,7 +5,7 @@ function (extent, resolution = "CELL") {
 		if (inherits(extent, "Extent") | inherits(extent, "Spatial")) {
 			e <- extent(extent)
 		} else {
-			stop("extent must be an Extent of Spatial* object")
+			stop("extent must be an Extent or Spatial* object")
 		}
 
 		RESOLUTION <- c("GRID", "CELL")

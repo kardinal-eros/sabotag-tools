@@ -6,6 +6,7 @@ import("sp")
 import("curl")
 import("geonames")
 importFrom("utils", "read.csv")
+importFrom("utils", "data")
 
 ## Registration of S3 methods
 #S3method(pretty, Extent)

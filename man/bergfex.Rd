@@ -2,16 +2,19 @@
 \alias{bergfex}
 \alias{bergfex2}
 \alias{nominatim2}
+
 \title{
 Locality Descriptions from Web Services
 }
+
 \description{
 Query \url{http://www.bergfex.at} server to get locality description for a given longitude and latitude.
 }
+
 \usage{
 bergfex(lng, lat, q, sp = FALSE, first = FALSE)
 
-bergfex2(x)
+bergfex2(x, first = TRUE)
 
 nominatim2(x)
 }
@@ -27,7 +30,7 @@ Longitude. Geographic coordinates (e.g. 47.510895)
 Query string.
 }
   \item{sp}{
-If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{rdal}.
+If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{rgdal}.
 }
   \item{first}{
 If \verb{TRUE} return only a single hit, the top most (nearby) one.
@@ -36,18 +39,23 @@ If \verb{TRUE} return only a single hit, the top most (nearby) one.
 object of class \verb{SpatialPointsDataFrame}.
 }
 }
+
 \details{
 Nothing here yet.
 }
+
 \value{
 A \verb{list} or \verb{SpatialPointsDataFrame} with \code{CRS("+init=epsg:4326")}.
 }
+
 \author{
 Roland Kaiser
 }
+
 \seealso{
-\code{\link{geocode}}
+\code{\link{geocode.austria}}
 }
+
 \examples{
 r <- bergfex(lng = 14.642202, lat = 47.530278, sp = FALSE)
 class(r)
@@ -73,6 +81,7 @@ proj4string(x) <- CRS("+init=epsg:4326")
 bergfex2(x)
 
 }
+
 \keyword{ spatial }
 \keyword{ database }
 

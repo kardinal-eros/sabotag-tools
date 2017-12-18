@@ -2,13 +2,14 @@
 \alias{zobodat}
 \alias{zobodat.csv}
 
-
 \title{
 Data From the Zobodat Database
 }
+
 \description{
 Query Zobodat voucher database (\url{http://www.zobodat.at}) and convert downloaded CSV-file to \verb{SptaialPointsDataFrame}.
 }
+
 \usage{
 zobodat.csv(x)
 
@@ -29,18 +30,23 @@ Species.
 Filename.
 }
 }
+
 \details{
 The function discards all observations where coordinates are missing.
 }
+
 \value{
 \verb{SpatialPointsDataFrame}.
 }
+
 \author{
 Roland Kaiser
 }
+
 \seealso{
   \code{\link[dismo]{gbif}} in package \pkg{dismo}
 }
+
 \examples{
 \dontrun{
 r <- zobodat("Poa", "pratensis")
@@ -50,6 +56,7 @@ map(region ="Austria")
 points(r)
 }
 }
+
 \keyword{ spatial }
 \keyword{ database }
 

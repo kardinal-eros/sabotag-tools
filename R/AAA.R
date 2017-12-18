@@ -1,6 +1,6 @@
-#	internal functions
-#	convert JASON tp SptaialPointsDataFrame
-.jason2sp <- function (x, multi = TRUE) {
+#	internal functions to convert G(Geo)Jason to SpatialPointsDataFrame
+.jason2sp.bergfex <-
+function (x, multi = TRUE) {
 	stopifnot(is.list(x))
 	r <- x$data
 	
@@ -13,6 +13,15 @@
 		coordinates(r) <- xy
 	} 
 	
+	proj4string(r) <- CRS("+init=epsg:4326")
+	
+	return(r)
+}
+
+.jason2sp.elevation <- function (x) {
+	stopifnot(is.list(x))
+	r <- x$results	
+	coordinates(r) <- ~ longitude+latitude
 	proj4string(r) <- CRS("+init=epsg:4326")
 	
 	return(r)

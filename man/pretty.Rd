@@ -9,9 +9,11 @@
 \title{
 Find Nice Grid Spacing
 }
+
 \description{
 Find nice interval in grid schema.
 }
+
 \usage{
 \S4method{pretty}{Extent}(x, resolution, ...)
 }
@@ -27,20 +29,27 @@ One of \verb{"GRID"} or \verb{"CELL"}, see \code{\link{pretty}} for details.
 Not used.
 }
 }
+
 \details{
 Nothing here yet.
 }
+
 \value{
 A \verb{Exent} object.
 }
+
 \author{
 Roland Kaiser
 }
+
 \seealso{
 \code{\link{floragrid}}
 }
+
 \examples{
 pretty(extent(13,15,46,49))
 pretty(extent(13,15,46,49), "GRID")
 }
+
 \keyword{ spatial }
+
