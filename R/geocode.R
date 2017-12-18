@@ -1,6 +1,7 @@
 geocode.austria <-
 function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
-	data(aut)
+	require(sabotagdata)
+	data(BEV)
 
 	#	dropped geonames dependency
 	#if (is.null(options()$geonamesUsername))
@@ -14,8 +15,8 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	if (is.na(proj4string(x))) {
 		stop("check proj4string of object")
 	} else {
-		if (!identical(x, aut)) {
-			x <- spTransform(x, proj4string(aut))
+		if (!identical(x, BEV)) {
+			x <- spTransform(x, proj4string(BEV))
 		}
 	}
 
@@ -46,7 +47,7 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 
 	#	query polygons, fast
 	message("query administrative boundaries for Austria")
-	locality <- over(x, aut)
+	locality <- over(x, BEV)
 	locality <- locality[c("ST", "BL", "PB", "PG")]
 	locality <- as.data.frame(as.matrix(locality), stringsAsFactors = FALSE)
 	
