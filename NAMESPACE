@@ -4,7 +4,6 @@ import("methods")
 import("raster")
 import("sp")
 import("curl")
-import("geonames")
 importFrom("utils", "read.csv")
 importFrom("utils", "data")
 
