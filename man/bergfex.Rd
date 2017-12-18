@@ -1,22 +1,19 @@
 \name{bergfex}
 \alias{bergfex}
 \alias{bergfex2}
-\alias{nominatim2}
 
 \title{
 Locality Descriptions from Web Services
 }
 
 \description{
-Query \url{http://www.bergfex.at} server to get locality description for a given longitude and latitude.
+Query \href{http://www.bergfex.at}{Bergfex} server to get locality description for a given longitude and latitude, or query coordinates of a toponym. 
 }
 
 \usage{
 bergfex(lng, lat, q, sp = FALSE, first = FALSE)
 
 bergfex2(x, first = TRUE)
-
-nominatim2(x)
 }
 
 \arguments{
@@ -41,7 +38,8 @@ object of class \verb{SpatialPointsDataFrame}.
 }
 
 \details{
-Nothing here yet.
+A \verb{bergfex} provides a single coordinate pair interface. \verb{bergfex2} allows the query to be based on a \verb{SpatialPointsDataFrame}.
+ 
 }
 
 \value{
@@ -72,7 +70,6 @@ head(r@data)
 coordinates(r)
 
 bergfex(q = "Schwaitlalm", sp = FALSE, first = TRUE)
-
 
 x <- data.frame(accuracy = 10, x = 13:16, y = 48)
 coordinates(x) <- ~x+y

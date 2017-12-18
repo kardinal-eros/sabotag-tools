@@ -1,4 +1,4 @@
-.nominatim2 <- function (lng, lat, sp) {
+.nominatim <- function (lng, lat, sp) {
 	requireNamespace("jsonlite")
 
 	url <- "http://nominatim.openstreetmap.org/reverse?format=jsonv2&"
@@ -43,10 +43,17 @@
 	return(r)
 }	
 
+nominatim <-
+function (lng, lat, sp = FALSE) {
+		r <- .nominatim(lng = lng, lat = lat, sp = sp)
+	
+	return(r)
+}
+
 nominatim2 <-
 function (x) {
 	r <- apply(coordinates(x), 1, function (x) {
-			ri <- .nominatim2(lng = x[ 1 ], lat = x[ 2 ], sp = TRUE)
+			ri <- .nominatim(lng = x[ 1 ], lat = x[ 2 ], sp = TRUE)
 		} )
 	r <- do.call("rbind", r)	
 	

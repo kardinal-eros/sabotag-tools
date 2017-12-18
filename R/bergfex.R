@@ -82,7 +82,7 @@ function (lng, lat, q, sp = FALSE, first = FALSE) {
 }
 
 #	query toponyms for coordinates
-#	only SpatialPointsDataFrame interface
+#	SpatialPointsDataFrame interface
 bergfex2 <-
 function (x, first = TRUE) {
 	r <- apply(coordinates(x), 1, function (x) {

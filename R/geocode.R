@@ -1,9 +1,10 @@
 geocode.austria <-
 function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
-	data(aut)
+	aut <- data(aut)
 
-	if (is.null(options()$geonamesUsername))
-		stop("set geonames user name, see ?geonames")
+	#	dropped geonames dependency
+	#if (is.null(options()$geonamesUsername))
+	#	stop("set geonames user name, see ?geonames")
 	
 	#	test arguments
 	if (!inherits(x, "SpatialPointsDataFrame")) {
@@ -66,11 +67,9 @@ function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
 	}
 		
 	#	query elevation
-	message("query SRTM3 data set for elevations")
-	masl <- apply(coordinates(x), 1, function (x) {
-		GNsrtm3(lat = x[ 2 ], lng = x[ 1 ])[[ 1 ]]
-		} )
-
+	message("query elevations")
+	masl <- elevation(x)$elevation
+	
 	#	format accuracy string
 	p <- paste0("\u00B1", p, "m")
 	#	format coordiante string
