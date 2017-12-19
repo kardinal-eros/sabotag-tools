@@ -11,7 +11,8 @@ Configure Map Background
 A simple function to collect data for a map background.
 }
 \usage{
-background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, tol = 0.005, strahler = 4, score = 3)
+background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
+           tol = 0.005, strahler = 4, score = 3)
 
 \method{plot}{background}(x, mar = rep(0,4), plain = FALSE, col,  ...)
 

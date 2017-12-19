@@ -4,5 +4,6 @@ sudo: required
 warnings_are_errors: false
 r_binary_packages:
   - rgdal
+  - dismo
 r_github_packages:
   - kardinal-eros/sabotag-data
