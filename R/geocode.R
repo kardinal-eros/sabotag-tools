@@ -1,7 +1,8 @@
 geocode.austria <-
 function (x, p = 100, sp = FALSE, bergfex = FALSE, ...) {
-	require(sabotagdata)
-	data(BEV)
+	requireNamespace("sabotagdata")
+	#data("BEV", package = "sabotagdata")
+	BEV <- sabotagdata::BEV
 
 	#	dropped geonames dependency
 	#if (is.null(options()$geonamesUsername))

@@ -1,3 +1,7 @@
+#.onLoad <- function(libname, pkgname) {
+#  data("model1", "mydata", package=pkgname, envir=parent.env(environment()))
+#}
+
 #	internal functions to convert G(Geo)Jason to SpatialPointsDataFrame
 .jason2sp.bergfex <-
 function (x, multi = TRUE) {
@@ -23,6 +27,13 @@ function (x, multi = TRUE) {
 	r <- x$results	
 	coordinates(r) <- ~ longitude+latitude
 	proj4string(r) <- CRS("+init=epsg:4326")
+	
+	return(r)
+}
+
+.normalize <- 
+function (x) {
+	r <- (x - min(x)) / (max(x) - min(x))
 	
 	return(r)
 }

@@ -1,4 +1,4 @@
-\name{bergfex}
+\name{nominatim}
 \alias{nominatim}
 \alias{nominatim2}
 
@@ -25,9 +25,6 @@ nominatim2(x)
   }
   \item{sp}{
   If \verb{TRUE} return spatial object as defined in \pkg{sp}; needs package \pkg{rgdal}.
-  }
-  \item{first}{
-  If \verb{TRUE} return only a single hit, the top most (nearby) one.
   }
   \item{x}{
   object of class \verb{SpatialPointsDataFrame}.

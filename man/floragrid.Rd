@@ -1,5 +1,6 @@
 \name{floragrid}
 \alias{floragrid}
+\alias{floragridlines}
 
 \title{
 Create Grid Based on Extent
@@ -11,6 +12,8 @@ Create grid based on extent object defined in package \pkg{raster}.
 
 \usage{
 floragrid(extent, resolution = "CELL")
+
+floragridlines(extent, resolution = "CELL", frame = TRUE)
 }
 
 \arguments{
@@ -20,15 +23,17 @@ An object where an \verb{extent} methods existst or a Spatial* object befined in
   \item{resolution}{
 One of \verb{"GRID"} or \verb{"CELL"}.
 }
-
+  \item{frame}{
+If \verb{FALSE} do not return lines of the encompassing border frame.
+}
 }
 
 \details{
-Nothing here yet.
+Nothing here yet.	
 }
 
 \value{
-\verb{SpatialPolygonsDataFrame}.
+\verb{floragrid} returns a SpatialPolygonsDataFrame with colums \verb{'GRIDCELL', 'GRID'} and \verb{'CELL'}. \verb{floragridlines} returns a SpatialLines object depicting only the grid as lines usefull for plotting.
 }
 
 \author{

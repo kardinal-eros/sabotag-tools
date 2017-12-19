@@ -15,18 +15,26 @@ Find nice interval in grid schema.
 }
 
 \usage{
-\S4method{pretty}{Extent}(x, resolution, add = 0, ...)
+\S4method{pretty}{Extent}(x, resolution, add = 0, mar = c(0,0,0,0), ...)
 }
 
 \arguments{
   \item{x}{
-A \verb{Extent} or \verb{Spatial*} object.
+    A \verb{Extent} or \verb{Spatial*} object.
 }
   \item{resolution}{
-One of \verb{"GRID"} or \verb{"CELL"}, see \code{\link{pretty}} for details.
+    One of \verb{"GRID"} or \verb{"CELL"}, see \code{\link{floragrid}} for
+    details.
 }
   \item{add}{
-Add number of bordering rectangle of grid cells (\verb{"GRID"}) around computed extent.
+    Add number of bordering rectangles of grid cells (\verb{"GRID"}) around
+    computed extent.
+}
+  \item{mar}{
+    A numerical vector of the form \verb{c(bottom, left, top, right)} which
+    gives the number of lines of \verb{GRID} cells to be added on the four
+    sides of the extent in addition to the value specified by argument
+    \verb{add}.
 }
   \item{...}{
 Not used.
@@ -34,29 +42,57 @@ Not used.
 }
 
 \details{
-Nothing here yet.
+  The function helps in setting up an appropriate grid with options to add
+  additional strips of grid cells systematically at all sides (argument
+  \verb{add})) or at specified sides (\verb{mar}). Arguments can be
+  combined.
 }
 
 \value{
-A \verb{Exent} object.
+  A \verb{Exent} object.
 }
 
 \author{
-Roland Kaiser
+  Roland Kaiser
 }
 
 \seealso{
-\code{\link{floragrid}}
+  \code{\link{floragrid}}
 }
 
 \examples{
-pretty(extent(13,15,46,48))
+# initial extent 	
+e0 <- extent(12.8,15.3,46.8,48.3)
 
-e1 <- pretty(extent(13,15,46,48), "GRID")
-e2 <- pretty(extent(13,15,46,48), "GRID", add = 2)
+# default is to use resolution CELL
+pretty(e0)
 
-plot(floragrid(e2, resolution = "GRID"))
-plot(floragrid(e1, resolution = "GRID"), col = 2, add = TRUE)
+# versions using resolution GRID
+e1 <- pretty(e0, "GRID")
+e2 <- pretty(e0, "GRID", add = 2)
+e3 <- pretty(e2, "GRID", add = 0, mar = c(1,2,3,4))
+
+# additional strips of gridcells at bottom (1), left (2), top (3), and right (4)
+plot(floragrid(e3, resolution = "GRID"),
+    border = "white", col = "black")
+
+# pretty spacing of extent plus 2 rings of encompassing cells, red
+plot(floragrid(e2, resolution = "GRID"),
+    border = "red", col = "white", add = TRUE)
+
+# pretty spacing of extent, green
+plot(floragrid(e1, resolution = "GRID"),
+    border = "green", col = "gray", add = TRUE)
+
+# initial extent, blue
+plot(extent2polygon(e0),
+    border = "blue", lwd = 2, add = TRUE)
+
+# add axes to plot
+axis(1)
+axis(2)
+
+
 }
 
 \keyword{ spatial }
