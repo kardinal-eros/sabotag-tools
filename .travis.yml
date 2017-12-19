@@ -2,7 +2,5 @@ language: R
 cache: packages
 sudo: required
 warnings_are_errors: false
-r_binary_packages:
-  - rgdal
-  - dismo
-
+github_packages:
+  - sabotagdata
