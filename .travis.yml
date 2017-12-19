@@ -2,5 +2,5 @@ language: R
 cache: packages
 sudo: required
 warnings_are_errors: false
-github_packages:
-  - sabotagdata
+r_github_packages:
+  - kardinal-eros/sabotag-data
