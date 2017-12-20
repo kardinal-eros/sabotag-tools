@@ -7,3 +7,5 @@ r_binary_packages:
   - dismo
 r_github_packages:
   - kardinal-eros/sabotag-data
+  - cran/curl
+
