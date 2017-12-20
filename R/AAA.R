@@ -2,7 +2,7 @@
 #  data("model1", "mydata", package=pkgname, envir=parent.env(environment()))
 #}
 
-#	internal functions to convert G(Geo)Jason to SpatialPointsDataFrame
+#	process jason from Bergfex (API)
 .jason2sp.bergfex <-
 function (x, multi = TRUE) {
 	stopifnot(is.list(x))
@@ -22,6 +22,7 @@ function (x, multi = TRUE) {
 	return(r)
 }
 
+#	process jason from Open-Elevation API
 .jason2sp.elevation <- function (x) {
 	stopifnot(is.list(x))
 	r <- x$results	
@@ -31,9 +32,35 @@ function (x, multi = TRUE) {
 	return(r)
 }
 
+#	normalize to 0 and 1
 .normalize <- 
 function (x) {
 	r <- (x - min(x)) / (max(x) - min(x))
 	
 	return(r)
+}
+
+#	coordiante deviation of grid cell from upper left corner of grid unit
+.cellshift <- 
+function (x) {
+	if (x == 1) {
+		rx <- 2.5 / 60
+		ry <- -(1.5) / 60
+	}
+	if (x == 2) {
+		rx <- (5 + 2.5)  / 60
+		ry <- -(1.5) / 60
+	}
+	if (x == 3) {
+		rx <- 2.5 / 60
+		ry <- -(3 + 1.5) / 60
+	}
+	if (x == 4) {
+		rx <- (5 + 2.5)  / 60
+		ry <- -(3 + 1.5) / 60
+	}
+	
+	r <- c(rx, ry)
+
+	return(r)	
 }
