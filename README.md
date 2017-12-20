@@ -1,23 +1,64 @@
 sabotag
 =======
 
+An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html): dedicated to Austrian
+botanists and friends around.
+
 Build status
 ------------
 
 [![Travis-CI Build Status](https://travis-ci.org/kardinal-eros/sabotag-tools.svg?branch=master)](https://travis-ci.org/kardinal-eros/sabotag-tools)
 <!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sabotag-tools)](http://cran.r-project.org/package=sabotag-tools) -->
+<!-- Rd2markdown("/Users/roli/Documents/sabotag-tools/man/sabotag-tools-package.Rd", "/Users/roli/Documents/sabotag-tools/package.md") -->
 
-An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html). It is aimed at those botanists who are concerned with floristic mapping.
+## Details
 
-The package has the following functionality.
 
-+ Create mapping grid for the recording of the vascular plant flora in Central Europe (»Kartierung der Flora Mitteleuropas«) according to Niklfeld (1978); in Austria generally known as »Raster der floristischen Kartierung« or briefly »(Floren-)Quadranten«.
-+ Query cell identifier (»Quadranten-Nummer«) of mapping grid by providing coordinates.
-+ Query elevations using the [Open-Elevation API](https://open-elevation.com).
-+ Query [OpenStreetMap](https://wiki.openstreetmap.org/wiki/Nominatim) server for locality descriptions.
-+ Query [Bergfex](http://www.bergfex.at) server for Austrian toponyms.
-+ Query locality description (reverse geocoding) using Albin Blaschka's private server.
-+ Query [Zobodat](http://www.zobodat.at/belege.php) voucher data base.
+ An R-package providing tools for the »Salzburger Botanische
+ Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html) .
+ It is aimed at botanists concerned with floristic mapping. The packages
+ provides classes to handle distribution data. They are explicitly
+ Spatial and built upon packages sp and raster .
+ Time is managed properly, as well as customizable symbology.
+ 
+ The package has the following functionality.
+ 
+   
+
+*    [`floragrid`](floragrid.html) and [`floragridlines`](floragridlines.html) : Create mapping grid for the recording of the vascular plant flora in Central Europe ( list("Kartierung der Flora Mitteleuropas") ) according to Niklfeld (1971); in Austria generally known as list("Raster der floristischen\n", "    Kartierung") or briefly list("(Floren-)Quadranten") .  
+
+*    [`lnglat2gridcell`](lnglat2gridcell.html) : Query grid cell identifier ( list("Quadranten-Nummer") ) of mapping grid by providing coordinates.  
+
+*    [`gridcell2lnglat`](gridcell2lnglat.html) : Query coordinates of mapping grid by providing by grid cell identifier  
+
+*    [`formatGridcell`](formatGridcell.html) and [`deparseGridcell`](deparseGridcell.html) : Work with grid cell identifier.  
+
+*    [`background`](background.html) : Configure a map background with topography, waterbodies and mapping grid just by passing a map extent. This functions uses data set provided by package list("sabotagdata") .  
+
+*    [`elevation`](elevation.html) : query [Open-Elevation](http://www.open-elevation.com)  server for elevation data.  
+
+*    [`nominatim2`](nominatim2.html) : query [OpenStreetMap](http://www.wiki.openstreetmap.org/wiki/Nominatim)  server for locality descriptions.  
+
+*    [`zobodat`](zobodat.html) : query [Zobodat](http://www.zobodat.at/belege.php)  voucher data base.  
+
+*    [`bergfex`](bergfex.html) : query [Bergfex](http://www.bergfex.at)  server for Austrian toponyms.  
+
+*    [`safapi`](safapi.html) : query locality description (reverse geocoding) using Albin Blaschka's private server. 
+
+
+## Author
+
+
+ Maintainer: Roland Kaiser kardinal.eros@gmail.com 
+
+
+## References
+
+
+ Niklfeld, H. (1971): Bericht über die Kartierung der Flora Mitteleuropas. Taxon 20: 545-571
+
+
+
 
 Installation
 ------------
