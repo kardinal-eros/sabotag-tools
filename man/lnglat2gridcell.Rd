@@ -22,16 +22,12 @@ Latitude in decimal degrees.
 }
 }
 
-\details{
-Nothing here yet.
-}
-
 \value{
 A \verb{character} vector.
 }
 
 \references{
-Niklfeld, H. (1978): Grundfeldschlüssel für die Kartierung der Flora Mitteleuropas, (Zentralstelle für Florenkartierung, Inst. Bot. Univ. Wien). Wien.
+Niklfeld, H. (1971): Bericht über die Kartierung der Flora Mitteleuropas. Taxon 20: 545-571.
 }
 
 \author{
@@ -39,7 +35,7 @@ Roland Kaiser
 }
 
 \seealso{
-\code{\link{floragrid}}
+\code{\link{floragrid}}, \code{\link{gridcell2lnglat}}
 }
 
 \examples{
