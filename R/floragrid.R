@@ -1,5 +1,5 @@
 floragrid <-
-function (extent, resolution = "GRID") {
+function (extent, resolution = "CELL") {
 	#	test and set arguments
 	if (missing(extent)) {
 		stop("please supply exent", call. = FALSE)

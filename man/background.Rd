@@ -36,7 +36,7 @@ Include grid as lines additional to polygon grid.
 Recalculate extent using \code{\link{pretty}}.
 }
   \item{add}{
-Argument passed on to \vreb{pretty}.
+Argument passed on to \verb{pretty}.
 }
   \item{tol}{
 Simplify geometries using package \pkg{rgeos}.
