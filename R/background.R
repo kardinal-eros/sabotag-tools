@@ -1,5 +1,5 @@
 background <- 
-function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, tol = 0.005, strahler = 4, score = 3) {
+function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3) {
 	requireNamespace("sabotagdata")
 	requireNamespace("rgeos")	
 	
@@ -7,9 +7,13 @@ function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, tol = 0.005
 	extent <- extent(extent)
 	stopifnot(inherits(extent, "Extent"))
 	
-	e <- pretty(extent, resolution = "GRID", add = 2) # calculated extent
-	g <- floragrid(e, resolution = "GRID")            # grid fitting extent
-	f <- extent2polygon(e)                            # frame polygon
+	if (pretty) {
+		e <- pretty(extent, resolution = "GRID") # calculated extent
+	} else {
+		e <- extent
+	}
+	g <- floragrid(e, resolution = "GRID")       # grid fitting extent
+	f <- extent2polygon(e)                       # frame polygon
 	
 	if (waters) {
 		#data("rivers", package = "sabotagdata")

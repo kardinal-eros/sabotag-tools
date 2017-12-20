@@ -1,3 +1,9 @@
+#	determine if already in shape
+.isPretty <- 
+function (x) {
+	
+} 
+
 #	internal functions for pretty to get calculate of extent
 .interval <-
 function (x, ...) {

@@ -1,5 +1,5 @@
 floragrid <-
-function (extent, resolution = "CELL") {
+function (extent, resolution = "GRID") {
 	#	test and set arguments
 	if (missing(extent)) {
 		stop("please supply exent", call. = FALSE)
@@ -19,7 +19,7 @@ function (extent, resolution = "CELL") {
 	message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
 	
 	#	build grid using raster
-	r <- raster(e, # pretty(e, resolution = resolution),
+	r <- raster(e,
 		res = c(xx / 60, yy / 60), crs = "+init=epsg:4326")
 	r <- as(r, "SpatialPolygons")
 

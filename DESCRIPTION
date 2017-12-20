@@ -13,3 +13,4 @@ License: GPL (>= 2)
 Encoding: UTF-8
 LazyLoad: yes
 LazyData: yes
+Roxygen: list(markdown = TRUE)

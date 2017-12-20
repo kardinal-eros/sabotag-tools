@@ -12,7 +12,7 @@ A simple function to collect data for a map background.
 }
 \usage{
 background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
-           tol = 0.005, strahler = 4, score = 3)
+           pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3)
 
 \method{plot}{background}(x, mar = rep(0,4), plain = FALSE, col,  ...)
 
@@ -31,6 +31,12 @@ Include a colored relief map water from package \pkg{sabotagdata}. See \code{\li
 }
   \item{gridlines}{
 Include grid as lines additional to polygon grid.
+}
+  \item{pretty}{
+Recalculate extent using \code{\link{pretty}}.
+}
+  \item{add}{
+Argument passed on to \vreb{pretty}.
 }
   \item{tol}{
 Simplify geometries using package \pkg{rgeos}.
