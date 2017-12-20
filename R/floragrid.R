@@ -13,7 +13,10 @@ function (extent, resolution = "GRID") {
 	RESOLUTION <- c("GRID", "CELL")
 	resolution <- match.arg(resolution, RESOLUTION, several.ok = FALSE)
 
-	if (resolution == "GRID") { xx <- 10; yy <- 6 }
+	if (resolution == "GRID") {
+		xx <- 10; yy <- 6
+		message("can't calculate propper GRIDCELL at resolution ", resolution)
+	}
 	if (resolution == "CELL") { xx <-  5; yy <- 3 }
 
 	message("use resolution ", resolution, " (", xx, "' x ", yy, "')")

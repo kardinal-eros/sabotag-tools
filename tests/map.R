@@ -18,6 +18,7 @@ x <- rbind(x1, x2)
 coordinates(x) <- gridcell2lnglat(x$gridcell)
 
 o <- occurrences(x)
+o <- occurrences(as.data.frame(x))
 
 #	draw plot
 if (TRUE) {
