@@ -7,7 +7,7 @@ Data From the Zobodat Database
 }
 
 \description{
-Query Zobodat voucher database (\url{http://www.zobodat.at}) and convert downloaded CSV-file to \verb{SptaialPointsDataFrame}.
+Query Zobodat voucher database (\url{http://www.zobodat.at}) and convert downloaded CSV-file to \verb{SpatialPointsDataFrame}.
 }
 
 \usage{
