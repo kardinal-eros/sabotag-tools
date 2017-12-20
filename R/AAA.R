@@ -67,7 +67,7 @@ function (x) {
 }
 
 ### S4 classes and methods
-#	class occurences
+#	class occurrences
 setClass("Occurences",
 	representation(
 	taxa = "character",

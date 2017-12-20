@@ -1,16 +1,16 @@
-\name{occurences}
-\alias{occurences}
+\name{occurrences}
+\alias{occurrences}
 
 \title{
 Create Occurences
 }
 
 \description{
-A simply constructor function for class \verb{"Occurneces"}.
+A simply constructor function for class \verb{"Occurrences"}.
 }
 
 \usage{
-occurences(x, schema = c("taxon", "gridcell"))
+occurrences(x, schema = c("taxon", "gridcell"))
 }
 
 \arguments{
@@ -44,7 +44,7 @@ x2 <- data.frame(taxon = "Genus species spp. subspecies", gridcell = sample(g$GR
 x <- rbind(x1, x2)
 coordinates(x) <- gridcell2lnglat(x$gridcell)
 
-o <- occurences(x)
+o <- occurrences(x)
 
 plot(o[o$taxon == "Genus species", ])
 

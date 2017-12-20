@@ -1,4 +1,4 @@
-occurences <- 
+occurrences <- 
 function (x, schema = c("taxon", "gridcell")) {
 	#	determine class of x
 	if (inherits(x, "Spatial")) {

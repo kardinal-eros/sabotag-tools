@@ -8,7 +8,7 @@
 Class Occurences.
 }
 \section{Objects from the Class}{
-Objects should be created with function \code{\link{occurences}}.
+Objects should be created with function \code{\link{occurrences}}.
 }
 \section{Slots}{
   \describe{
