@@ -49,29 +49,19 @@ Roland Kaiser
 }
 
 \examples{
-r <- bergfex(lng = 14.642202, lat = 47.530278, sp = FALSE)
+r <- nominatim(lng = 14.642202, lat = 47.530278, sp = FALSE)
 class(r)
 str(r)
 
-r <- bergfex(lng = 14.642202, lat = 47.530278, sp = TRUE)
+r <- nominatim(lng = 14.642202, lat = 47.530278, sp = TRUE)
 class(r)
 head(r@data)
-
-bergfex(lng = 14.642202, lat = 47.530278, first = TRUE, sp = FALSE)
-
-r <- bergfex(q = "Kölblalm", sp = TRUE)
-head(r@data)
-coordinates(r)
-
-bergfex(q = "Schwaitlalm", sp = FALSE, first = TRUE)
-
 
 x <- data.frame(accuracy = 10, x = 13:16, y = 48)
 coordinates(x) <- ~x+y
 proj4string(x) <- CRS("+init=epsg:4326")
 
-bergfex2(x)
-
+nominatim2(x)
 }
 
 \keyword{ spatial }

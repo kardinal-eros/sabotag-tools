@@ -2,6 +2,7 @@
 #  data("model1", "mydata", package=pkgname, envir=parent.env(environment()))
 #}
 
+### internal functions
 #	process jason from Bergfex (API)
 .jason2sp.bergfex <-
 function (x, multi = TRUE) {
@@ -64,3 +65,18 @@ function (x) {
 
 	return(r)	
 }
+
+### S4 classes and methods
+#	class occurences
+setClass("Occurences",
+	representation(
+	taxa = "character",
+	symbology = "list"),
+	validity = function (object) {
+		any(names(object) == "gridcell")
+		#any(names(object) == "date")		
+	},
+	contains = c("SpatialPointsDataFrame")
+)
+
+showClass("Occurences")

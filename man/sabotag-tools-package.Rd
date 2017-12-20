@@ -15,21 +15,35 @@ An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft
 \details{
 An R-package providing tools for the »Salzburger Botanische
 Arbeitsgemeinschaft« \href{http://www.hausdernatur.at/sabotag.html}{(SaBotAg)}.
-It is aimed at those botanists who are concerned with floristic mapping.
+It is aimed at botanists concerned with floristic mapping. The packages
+provides classes to handle distribution data. They are explicitly
+\emph{Spatial} and built upon packages \sQuote{sp} and \sQuote{raster}.
+Time is managed properly, as well as customizable symbology.
 
 The package has the following functionality.
 
 \itemize{
   \item
-    \code{\link{floragrid}}: 
+    \code{\link{floragrid}} and \code{\link{floragridlines}}: 
     Create mapping grid for the recording of the vascular plant flora in
     Central Europe (\dQuote{Kartierung der Flora Mitteleuropas}) according to
-    Niklfeld (1978); in Austria generally known as »Raster der floristischen
-    Kartierung« or briefly \dQuote{(Floren-)Quadranten}.
+    Niklfeld (1971); in Austria generally known as \dQuote{Raster der floristischen
+    Kartierung} or briefly \dQuote{(Floren-)Quadranten}.
   \item
     \code{\link{lnglat2gridcell}}:
-    Query cell identifier (\dQuote{Quadranten-Nummer}) of mapping grid by 
+    Query grid cell identifier (\dQuote{Quadranten-Nummer}) of mapping grid by 
     providing coordinates.
+  \item
+    \code{\link{gridcell2lnglat}}:
+    Query coordinates of mapping grid by providing by grid cell identifier
+  \item
+    \code{\link{formatGridcell}} and \code{\link{deparseGridcell}}:
+    Work with grid cell identifier.
+  \item
+    \code{\link{background}}:
+    Configure a map background with topography, waterbodies and mapping grid
+    just by passing a map extent. This functions uses data set provided by
+    package \verb{sabotagdata}.
   \item
     \code{\link{elevation}}: query \href{http://www.open-elevation.com}{Open-Elevation}
     server for elevation data.
@@ -46,6 +60,10 @@ The package has the following functionality.
     \code{\link{safapi}}: query locality description (reverse geocoding) using
     Albin Blaschka's private server.
 }
+}
+
+\references{
+Niklfeld, H. (1971): Bericht über die Kartierung der Flora Mitteleuropas. Taxon 20: 545-571 
 }
 
 \author{

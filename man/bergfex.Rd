@@ -55,6 +55,7 @@ Roland Kaiser
 }
 
 \examples{
+\dontrun{	
 r <- bergfex(lng = 14.642202, lat = 47.530278, sp = FALSE)
 class(r)
 str(r)
@@ -76,7 +77,7 @@ coordinates(x) <- ~x+y
 proj4string(x) <- CRS("+init=epsg:4326")
 
 bergfex2(x)
-
+}
 }
 
 \keyword{ spatial }
