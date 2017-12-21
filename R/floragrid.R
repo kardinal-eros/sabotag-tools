@@ -1,3 +1,4 @@
+#	polygon grid
 floragrid <-
 function (extent, resolution = "CELL") {
 	#	test and set arguments
@@ -35,27 +36,46 @@ function (extent, resolution = "CELL") {
 
 	return(r)
 }
-	
+
+#	lines grid based on	polygon grid	
 floragridlines <-
-function (extent, resolution = "CELL", frame = TRUE) {
+function (extent, resolution = "CELL", frame = TRUE, coarse = FALSE) {
 
 	#	get nodes from polygon grid
 	r <- floragrid(extent = extent, resolution = resolution)
 	e <- extent(r)
+	#	this step is computational intensive
 	xy <- coordinates(as(as(r, "SpatialLines"), "SpatialPoints"))
-
+	
 	#	find edge nodes
-	i1 <- xy[, 1] == e[1] | xy[, 1] == e[2] # xmin and xmax
-	i2 <- xy[, 2] == e[3] | xy[, 2] == e[4] # ymin and ymax
+	i1 <- xy[ ,1 ] == e[1] | xy[ ,1 ] == e[2] # xmin and xmax
+	i2 <- xy[ ,2 ] == e[3] | xy[ ,2 ] == e[4] # ymin and ymax
 	xy <- xy[ as.logical(i1 + i2), ]
 	
 	#	seperate edges and ensure order
-	h <- xy[, 1] == e[1] | xy[, 1] == e[2]  # horizontal
-	v <- xy[, 2] == e[3] | xy[, 2] == e[4]  # vertical
+	h <- xy[ ,1 ] == e[1] | xy[ ,1 ] == e[2]  # horizontal
+	v <- xy[ ,2 ] == e[3] | xy[ ,2 ] == e[4]  # vertical
 	h <- unique(xy[ h, ])
 	v <- unique(xy[ v, ])
-	h <- h[ order(h[, 2], decreasing = TRUE), ]
-	v <- v[ order(v[, 1]), ]
+	h <- h[ order(h[ ,2 ], decreasing = TRUE), ]
+	v <- v[ order(v[ ,1 ]), ]
+	
+	if (coarse) {
+		message("coarse ", coarse)
+		#	find integer values (wohle numbers) in coordinates
+		#	and subset h and v coordiante pairs
+		i <- apply(h, 1, function (x) {
+			!length(grep("[^[:digit:]]", format(x[2], scientific = FALSE)))	
+		})
+		
+		h <- h[ i, ]
+		
+		i <- apply(v, 1, function (x) {
+			!length(grep("[^[:digit:]]", format(x[1], scientific = FALSE)))	
+		})
+		
+		v <- v[ i, ]
+	}
 
 	#	build lines
 	h <- apply(cbind(seq(1, nrow(h), by = 2), seq(2, nrow(h), by = 2)), 1,
@@ -74,6 +94,37 @@ function (extent, resolution = "CELL", frame = TRUE) {
 	}	
 
 	r <- SpatialLines(list(h,v), proj4string = CRS(proj4string(r)))
-
+	
 	return(r)
+}
+
+#	tiock marks based on line grid
+ticks <- 
+function (extent, resolution = "GRID", coarse = FALSE) {
+	l <- floragridlines(extent, resolution = resolution, coarse = coarse)
+	xy <- coordinates(l)
+	h <- do.call("rbind", xy[[ 1 ]])
+	v <- do.call("rbind", xy[[ 2 ]])
+	
+	#	horizontal ticks along y axis
+	#	seperate left (l) and right (r)
+	hx <- h[ ,1 ]
+	hy <- h[ ,2 ]
+	hr <- range(hx)
+	hl <- hx == hr[ 1 ]
+	hr <- hx == hr[ 2 ]
+
+	segments(x0 = hx[ hl ], y0 = hy[ hl ], x1 = hx[ hl ] + 10 / 60, y1 = hy[ hl ])
+	segments(x0 = hx[ hr ], y0 = hy[ hr ], x1 = hx[ hr ] - 10 / 60, y1 = hy[ hr ])
+	
+	#	vertical ticks along x axis
+	#	seperate top (t) and bottom (b)
+	vx <- v[ ,1 ]
+	vy <- v[ ,2 ]
+	vr <- range(vy)
+	vt <- vy == vr[ 1 ]
+	vb <- vy == vr[ 2 ]
+	
+	segments(x0 = vx[ vt ], y0 = vy [ vt ], x1 = vx[ vt ], y1 = vy[ vt ] + 6 / 60)
+	segments(x0 = vx[ vb ], y0 = vy [ vb ], x1 = vx[ vb ], y1 = vy[ vb ] - 6 / 60)
 }
