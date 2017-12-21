@@ -3,7 +3,7 @@
 \alias{nominatim2}
 
 \title{
-Locality Descriptions from Web Services
+Locality Descriptions from OpenStreetMap Web Service
 }
 
 \description{

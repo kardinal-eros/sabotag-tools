@@ -22,10 +22,6 @@ CRS.
 }
 }
 
-\details{
-Nothing here yet.
-}
-
 \value{
 A \verb{SpatialPolygons} object.
 }
@@ -36,10 +32,6 @@ Roland Kaiser
 
 \seealso{
 \code{\link{floragrid}}
-}
-
-\examples{
-# nothing here yet
 }
 
 \keyword{ spatial }

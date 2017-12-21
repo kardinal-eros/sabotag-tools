@@ -1,8 +1,8 @@
 Package: sabotag
 Type: Package
 Title: Tools of the Salzburger Botanische Arbeitsgemeinschaft (SaBotAg)
-Version: 0.1-7
-Date: 2017-12-19
+Version: 0.1-8
+Date: 2017-12-21
 Authors@R: c(person("Roland", "Kaiser", role = c("aut", "cre"),
 					 email = "kardinal.eros@gmail.com"))
 Maintainer: Roland Kaiser <kardinal.eros@gmail.com>

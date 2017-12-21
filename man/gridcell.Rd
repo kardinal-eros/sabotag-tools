@@ -7,7 +7,7 @@ Format Grid Cell Identifier
 }
 
 \description{
-\verb{formatGridcell} formats a string as to match a standard. The default format applied in this package is to separate one of the four grid cells (\emph{\sQuote{Quadrant}}) of a grid unit (\emph{\sQuote{Grundfeld}}) with a dash (\verb{"-"}). Function \verb{deparseGridcell} returns the components plus row and column. See \code{\link{floragrid}}.
+\verb{formatGridcell} formats a string as to match a standard. The default format applied in this package is to separate one of the four grid cells (\emph{\sQuote{Quadrant}}) of a grid unit (\emph{\sQuote{Grundfeld}}) with a dash (\verb{\dQuote{-}}). Function \verb{deparseGridcell} returns the components plus row and column. See \code{\link{floragrid}}.
 }
 
 \usage{
@@ -32,7 +32,7 @@ deparseGridcell(x, sep = "-", row.width = 2, col.width = 2)
 }
 
 \details{
-The most common use case we find in (private) databases is not to signalize the \emph{grid cell} with any separating character. The forward slash (\verb{\sQuote{/}}) is often encountered also. Likewise, some data sets apply the dash (\verb{\sQuote{/}}) as separator. The function deals with all these forms. The default (\verb{split = NULL}) handles the case where no seperator is used.
+The most common use case we find in (private) databases is not to signalize the \emph{grid cell} with any separating character. The forward slash (\verb{\dQuote{/}}) is often encountered also. Likewise, some data sets apply the dash (\verb{\dQuote{-}}) as separator. The function deals with all these forms. The default (\verb{split = NULL}) handles the case where no seperator is used.
 }
 
 \value{

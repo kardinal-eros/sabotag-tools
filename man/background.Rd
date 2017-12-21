@@ -42,7 +42,7 @@ Argument passed on to \verb{pretty}.
 Simplify geometries using package \pkg{rgeos}.
 }
   \item{strahler}{
-Subset rivers with Strahler stream order
+Subset rivers with Strahler stream order.
 }
   \item{score}{
 Subset lakes by lake score.
@@ -51,7 +51,7 @@ Subset lakes by lake score.
 \verb{background} object.
 }
   \item{mar}{
-See margins. See \code{\link{par}}.
+Add margins (see \code{\link{par}}).
 }
   \item{plain}{
 Do not plot anything but open plotting window.
@@ -64,13 +64,13 @@ To be passed to functions. Experimental.
 }
 }
 \details{
-The functions crops layers to a common extent.
+\verb{background} returns an object where all layers are cropped to a common extent.
 }
 \value{
-An object of class \verb{background}.
+An object of class \verb{background}. A list with elements of class Spatial*.
 }
 \author{
-Roladn Kaiser
+Roland Kaiser
 }
 
 \seealso{

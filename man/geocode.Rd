@@ -6,7 +6,7 @@ Locality Description for Austria's administrative Boundaries
 }
 
 \description{
-Query \code{data(aut)} to get locality description for given coordinates.
+Query \code{data("BEV", package "sabotagdata")} to get locality description for given coordinates.
 }
 
 \usage{
@@ -18,7 +18,7 @@ geocode.austria(x, p = 100, sp = FALSE, bergfex = FALSE, ...)
 Object of class SpatialPointsDataFrame.
 }
   \item{p}{
-Value for accuracy estimate. The function searches for a column named "accuracy" or "precision" in \verb{x} and, if present, useses the given values.
+Value for accuracy estimate. The function searches for a column named \dQuote{accuracy} or \dQuote{precision} in \verb{x} and, if present, useses the given values.
 }
   \item{sp}{
 Return SpatialPointsDataFrame.

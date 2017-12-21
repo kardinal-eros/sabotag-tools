@@ -3,7 +3,7 @@
 \alias{bergfex2}
 
 \title{
-Locality Descriptions from Web Services
+Locality Descriptions from Bergfex Web Service
 }
 
 \description{
