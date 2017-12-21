@@ -15,7 +15,7 @@ function (x, schema = c("taxon", "gridcell")) {
 			x <- as(x, "SpatialPointsDataFrame")
 			x$gridcell <- apply(coordinates(x), 1,
 				function (x) { lnglat2gridcell(x[1], x[2]) })[ 1, ]
-		r <- new("Occurences", x, taxa = unique(as.character(x$taxon)), symbology = list())
+		r <- new("Occurrences", x, taxa = unique(as.character(x$taxon)), symbology = list())
 		},
 		gridcell = {
 		#	for safety
@@ -33,7 +33,7 @@ function (x, schema = c("taxon", "gridcell")) {
 		coordinates(r) <- gridcell2lnglat(r$gridcell)
 		proj4string(r) <- CRS("+init=epsg:4326")
 		
-		r <- new("Occurences", r, taxa = unique(r$taxon), symbology = list())
+		r <- new("Occurrences", r, taxa = unique(r$taxon), symbology = list())
 	})
 
 	return(r)

@@ -3,13 +3,14 @@
 \alias{sabotag}
 \docType{package}
 
+\alias{pdf-methods}
+
 \title{
 \packageTitle{sabotag}
 }
 
 \description{
-An R-package providing tools for the Salzburger Botanische Arbeitsgemeinschaft
-(SaBotAg)
+Utilities mainly useful in floristic mapping, herbarium digitizing (geocoding) and data base maintenance.
 }
 
 \details{
@@ -35,7 +36,7 @@ The package has the following functionality.
     providing coordinates.
   \item
     \code{\link{gridcell2lnglat}}:
-    Query coordinates of mapping grid by providing by grid cell identifier
+    Query coordinates of mapping grid by providing grid cell identifier
   \item
     \code{\link{formatGridcell}} and \code{\link{deparseGridcell}}:
     Work with grid cell identifier.

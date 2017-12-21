@@ -1,11 +1,11 @@
-\name{Occurences-class}
+\name{Occurrences-class}
 \Rdversion{1.1}
 \docType{class}
-\alias{Occurences-class}
+\alias{Occurrences-class}
 
-\title{Class \code{"Occurences"}}
+\title{Class \code{"Occurrences"}}
 \description{
-Class Occurences.
+Class Occurrences.
 }
 \section{Objects from the Class}{
 Objects should be created with function \code{\link{occurrences}}.
@@ -35,6 +35,6 @@ No methods defined for the class so far. Note, all Spatial method for \verb{Spat
 Roland Kaiser
 }
 \examples{
-showClass("Occurences")
+showClass("Occurrences")
 }
 \keyword{classes}

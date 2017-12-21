@@ -9,12 +9,15 @@ import("sabotagdata")
 importFrom("utils", "read.csv")
 importFrom("utils", "data")
 importFrom("grDevices", "rgb")
+importFrom("grDevices", "pdf")
+importFrom("grDevices", "dev.off")
 importFrom("graphics", "par")
 importFrom("graphics", "segments")
+importFrom("graphics", "points")
 #importFrom("sabotagdata", "ecrins")
 
 ## Registration of S3 methods
 
-S3method(plot,background)
-S3method(print,background)
+#S3method(plot,background)
+#S3method(print,background)
 #S3method(pretty, Extent)

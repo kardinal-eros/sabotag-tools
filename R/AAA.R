@@ -66,9 +66,24 @@ function (x) {
 	return(r)	
 }
 
+#	determine extenrt ratio for plotting
+.extent.ratio <- 
+function (x) {
+	xlim <- bbox(x)[ 1, ]
+	ylim <- bbox(x)[ 2, ]
+	# aspect as in plot.Spatial for unprojected data
+	a <- 1 / cos((mean(ylim) * pi) / 180) 
+	r <- c(diff(xlim), diff(ylim), a)
+	r[ 4 ] <- r[ 1 ] / (r[ 2 ] * r[ 3 ])
+
+	names(r) <- c("xlim", "ylim", "yasp", "ratio")
+
+	return(r)	
+}
+
 ### S4 classes and methods
 #	class occurrences
-setClass("Occurences",
+setClass("Occurrences",
 	representation(
 	taxa = "character",
 	symbology = "list"),
@@ -79,4 +94,15 @@ setClass("Occurences",
 	contains = c("SpatialPointsDataFrame")
 )
 
-showClass("Occurences")
+showClass("Occurrences")
+
+#	class occurrences
+setClass("Background",
+	representation(
+	layers = "list",
+	symbology = "list"),
+	validity = function (object) {	
+	}
+)
+
+showClass("Background")

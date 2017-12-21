@@ -1,22 +1,40 @@
 \name{background}
+\docType{methods}
+
 \alias{background}
-\alias{plot.background}
-\alias{print.background}
+
+\alias{plot}
+\alias{show}
+\alias{pdf}
+
+\alias{plot-methods}
+\alias{plot,Background-method}
+\alias{plot,Background,missing-method}
+
+\alias{show-methods}
+\alias{show,Background-method}
+
+\alias{pdf,Background-method}
 
 
 \title{
-Configure Map Background
+Configure a Map Background
 }
+
 \description{
-A simple function to collect data for a map background.
+  A simple function to collect data for a map background and methods for class
+  \code{"Background"}.
 }
 \usage{
 background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
            pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3)
 
-\method{plot}{background}(x, mar = rep(0,4), plain = FALSE, col,  ...)
+\S4method{plot}{Background}(x, mar = rep(0,4), plain = FALSE,
+    frame = TRUE, col,  ...)
 
-\method{print}{background}(x, ...)
+\S4method{show}{Background}(object)
+
+\S4method{pdf}{Background}(object, file, width, height, dingbats = FALSE, ...)
 }
 
 \arguments{
@@ -24,10 +42,12 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
 Extent object as defined in \pkg{raster}. See also \code{\link{pretty}}.
 }
   \item{waters}{
-Include water bodies (rivers and lakes) from package \pkg{sabotagdata}. See \code{\link[sabotagdata:ecrins]{ecrins}}.
+Include water bodies (rivers and lakes) from package \pkg{sabotagdata}.
+See \code{\link[sabotagdata:ecrins]{ecrins}}.
 }
   \item{reliefmap}{
-Include a colored relief map water from package \pkg{sabotagdata}. See \code{\link[sabotagdata:relief]{relief}}
+Include a colored relief map water from package \pkg{sabotagdata}.
+See \code{\link[sabotagdata:relief]{relief}}
 }
   \item{gridlines}{
 Include grid as lines additional to polygon grid.
@@ -47,8 +67,8 @@ Subset rivers with Strahler stream order.
   \item{score}{
 Subset lakes by lake score.
 }
-  \item{x}{
-\verb{background} object.
+  \item{x, object}{
+\verb{Background} object.
 }
   \item{mar}{
 Add margins (see \code{\link{par}}).
@@ -56,8 +76,14 @@ Add margins (see \code{\link{par}}).
   \item{plain}{
 Do not plot anything but open plotting window.
 }
+  \item{frame}{
+Draw a frame around figure.
+}
   \item{col}{
 Color of water bodies. If missing an internal default is applied.
+}
+  \item{file, width, height, dingbats}{
+    Arguments for pdf. See \code{\link[grDevices:pdf]{pdf}}.
 }
   \item{...}{
 To be passed to functions. Experimental.

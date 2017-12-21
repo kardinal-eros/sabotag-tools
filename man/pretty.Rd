@@ -34,10 +34,10 @@ Find nice interval in grid schema.
     Integer vector. Numerical vector of the form
     \verb{c(bottom, left, top, right)} which gives the number of rows or
     columns of grid units (resolution \verb{GRID}) or grid cells
-    (resolution \verb{CELL}) to be added on the four sides of the extent in
-    addition to the value specified by argument \verb{add}. In this way it is
-    possible to create asymmetric extent shapes, e.g. widen the extent on a
-    particular side.
+    (resolution \verb{CELL}) to be added on the four sides of the extent;
+    in addition to the value (already) specified by argument \verb{add}.
+    In this way it is possible to create asymmetric extent shapes,
+    e.g. widen the extent on a particular side.
 }
   \item{...}{
 Not used.

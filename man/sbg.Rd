@@ -7,14 +7,10 @@ Salzburg Mapping Grid
 }
 
 \description{
-Grid covering the state of Salzburg (Austria).
+Grid covering the state of Salzburg (Austria). Imported from ESRI Shapefile tested and verified.
 }
 
 \usage{data("sbg")}
-
-\references{
-Niklfeld, H. (1978): Grundfeldschlüssel für die Kartierung der Flora Mitteleuropas, (Zentralstelle für Florenkartierung, Inst. Bot. Univ. Wien). Wien.
-}
 
 \examples{
 data(sbg)
