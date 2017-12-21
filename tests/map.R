@@ -1,10 +1,11 @@
 library(sabotag)
 
-#	set extent! somewhere in Salz	burg
-e <- pretty(extent(12,13,47,48), resolution = "GRID")
-
+#	set extent! somewhere in Salzburg
+e0 <- extent(12,15,47,48)
+e <- pretty(e0, resolution = "GRID")
+be <- pretty(e, resolution = "GRID", add = 1, mar = c(1,2,3,4))
 #	set background for extent
-b <- background(pretty(e, resolution = "GRID", add = 1))
+b <- background(be)
 
 #	two species dummy data in extent
 #	by sampling gird cells

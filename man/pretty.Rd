@@ -23,18 +23,21 @@ Find nice interval in grid schema.
     \verb{Extent} or \verb{Spatial*} object.
 }
   \item{resolution}{
-    One of \verb{"GRID"} or \verb{"CELL"}, see \code{\link{floragrid}} for
-    details.
+    Character. One of \verb{"GRID"} or \verb{"CELL"}, see
+    \code{\link{floragrid}} for details.
 }
   \item{add}{
-    Number of bordering rectangles of grid units (\verb{"GRID"}) around
-    computed extent.
+    Integer. Number of bordering rectangles of grid units (resolution
+    \verb{GRID}) or grid cells (resolution \verb{CELL}) around computed extent.
 }
   \item{mar}{
-    Numerical vector of the form \verb{c(bottom, left, top, right)} which
-    gives the number of lines or rows of grid units (resolution \verb{GRID})
-    to be added on the four sides of the extent in addition to the value
-    specified by argument \verb{add}.
+    Integer vector. Numerical vector of the form
+    \verb{c(bottom, left, top, right)} which gives the number of rows or
+    columns of grid units (resolution \verb{GRID}) or grid cells
+    (resolution \verb{CELL}) to be added on the four sides of the extent in
+    addition to the value specified by argument \verb{add}. In this way it is
+    possible to create asymmetric extent shapes, e.g. widen the extent on a
+    particular side.
 }
   \item{...}{
 Not used.
@@ -64,7 +67,7 @@ Not used.
 # initial extent 	
 e0 <- extent(12.8,15.3,46.8,48.3)
 
-# default is to use resolution CELL
+# default is to use resolution GRID
 pretty(e0)
 
 # versions using resolution GRID
@@ -72,7 +75,8 @@ e1 <- pretty(e0, "GRID")
 e2 <- pretty(e0, "GRID", add = 2)
 e3 <- pretty(e2, "GRID", add = 0, mar = c(1,2,3,4))
 
-# additional strips of gridcells at bottom (1), left (2), top (3), and right (4), black
+# additional strips of gridcells at
+# bottom (1), left (2), top (3), and right (4), black
 plot(floragrid(e3, resolution = "GRID"),
     border = "white", col = "black")
 
