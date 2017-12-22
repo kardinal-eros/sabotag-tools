@@ -21,18 +21,20 @@ ticks(extent, resolution = "GRID", coarse = FALSE)
 
 \arguments{
   \item{extent}{
-An object where an \verb{extent} method exists or a Spatial* object defined in package \pkg{sp}.
+  An object where an \code{\link{extent}} method exists or a Spatial* object
+  defined in package \pkg{sp}. \verb{ticks} is a plotting method, whereas
+  \verb{floragridlines} returns objects to be plotted or anylsed. 
 }
   \item{resolution}{
     One of \verb{"GRID"} or \verb{"CELL"}. The defaults are appropriate in most cases.
 }
   \item{frame}{
-    If \verb{FALSE} do not return lines of the encompassing border frame. This
-    \emph{frame} for plotting purposes can in any case be obtained by
-    \verb{extent2polygon(object)}.
+    For function \verb{floragridlines}: if \verb{FALSE} do not return lines
+    of the encompassing border frame. This \emph{frame} – e.g. for plotting
+    purposes – can in any case be obtained by \verb{extent2polygon(extent)}.
 }
   \item{coarse}{
-    Only grid lines at degree in whole numbers.
+    Return only grid lines at degrees in whole numbers (integer).
 }
 }
 
@@ -47,7 +49,10 @@ Note, the default resolution of function \verb{floragrid} is \verb{CELL}. This i
 }
 
 \value{
-\verb{floragrid} returns a SpatialPolygonsDataFrame with colums \verb{'GRIDCELL', 'GRID'} and \verb{'CELL'}. \verb{floragridlines} returns a SpatialLines object depicting only the grid as lines usefull for plotting.
+
+\verb{floragrid} returns a SpatialPolygonsDataFrame with colums \verb{'GRIDCELL', 'GRID'} and \verb{'CELL'}.
+
+\verb{floragridlines} returns a SpatialLines object depicting only the grid as lines usefull for plotting.
 }
 
 \references{
@@ -70,7 +75,13 @@ class(e)
 floragrid(e)
 floragrid(sbg)
 
+# plot polygons
 plot(floragrid(e))
+
+# plot lines
+plot(floragridlines(e))
+
+# inititial extent template
 plot(sbg, add = TRUE, col = 2)
 
 

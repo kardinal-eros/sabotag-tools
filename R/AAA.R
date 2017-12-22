@@ -81,6 +81,8 @@ function (x) {
 	return(r)	
 }
 
+
+
 ### S4 classes and methods
 #	class occurrences
 setClass("Occurrences",
@@ -94,7 +96,7 @@ setClass("Occurrences",
 	contains = c("SpatialPointsDataFrame")
 )
 
-showClass("Occurrences")
+#showClass("Occurrences")
 
 #	class occurrences
 setClass("Background",
@@ -105,4 +107,4 @@ setClass("Background",
 	}
 )
 
-showClass("Background")
+#showClass("Background")

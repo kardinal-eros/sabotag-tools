@@ -75,7 +75,7 @@ setMethod("pretty",
 		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")		
 		
 		addx <- addy <- 0
-		if (add > 0) {
+		if (add != 0) {
 			addx <- xx / 60 * add
 			addy <- yy / 60 * add
 		}

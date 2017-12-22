@@ -1,24 +1,28 @@
 \name{formatGridcell}
 \alias{formatGridcell}
 \alias{deparseGridcell}
+\alias{dimGridcell}
 
 \title{
 Format Grid Cell Identifier
 }
 
 \description{
-\verb{formatGridcell} formats a string as to match a standard. The default format applied in this package is to separate one of the four grid cells (\emph{\sQuote{Quadrant}}) of a grid unit (\emph{\sQuote{Grundfeld}}) with a dash (\verb{\dQuote{-}}). Function \verb{deparseGridcell} returns the components plus row and column. See \code{\link{floragrid}}.
+\verb{formatGridcell} formats a string as to match a standard. The default format applied in this package is to separate one of the four grid cells (\emph{\sQuote{Quadrant}}) of a grid unit (\emph{\sQuote{Grundfeld}}) with a dash (\verb{\dQuote{-}}). Function \verb{deparseGridcell} returns the components plus row and column. See \code{\link{floragrid}}. \verb{dimGridcell} returns the dimension of an \verb{"Background"} object in grid units (rows and column).
 }
 
 \usage{
 formatGridcell(x, sep = NULL)
 
 deparseGridcell(x, sep = "-", row.width = 2, col.width = 2)
+
+dimGridcell(x)
 }
 
 \arguments{
   \item{x}{
-    Vector to be coerced to character.
+    Vector to be coerced to character. For \verb{dimGridcell} an object of
+    class \verb{"Background"}
   }
   \item{sep}{
     Separator.

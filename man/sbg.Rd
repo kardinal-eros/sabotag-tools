@@ -7,7 +7,8 @@ Salzburg Mapping Grid
 }
 
 \description{
-Grid covering the state of Salzburg (Austria). Imported from ESRI Shapefile tested and verified.
+  Grid covering the state of Salzburg (Austria). Imported from ESRI Shapefile:
+  tested and verified.
 }
 
 \usage{data("sbg")}

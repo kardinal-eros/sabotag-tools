@@ -1,3 +1,4 @@
+#	simple functions
 formatGridcell <-
 function (x, sep = NULL) {
 	x <- as.character(x)
@@ -19,7 +20,6 @@ function (x, sep = NULL) {
 	return(r)
 }
 
-
 deparseGridcell <- 
 function (x, sep = "-", row.width = 2, col.width = 2) {
 	x <- as.character(x)
@@ -35,4 +35,28 @@ function (x, sep = "-", row.width = 2, col.width = 2) {
 	return(r)	
 }
 
+#	methods
+if (!isGeneric("grid")) {
+	setGeneric("grid", function (object, ...) standardGeneric("grid"))
+}
 
+setMethod("grid",
+	signature(object = "Background"),
+	function (object) {
+		layers(object)$grid
+	}
+)
+
+dimGridcell <- 
+function (x) {
+	stopifnot(inherits(x, "Background"))
+	x <- grid(x)$GRIDCELL
+	i1 <- x[ which.max(x[ ,4 ]), 4 ]
+	i2 <- x[ which.min(x[ ,4 ]), 4 ]
+	i3 <- x[ which.max(x[ ,5 ]), 5 ]
+	i4 <- x[ which.min(x[ ,5 ]), 5 ]	
+	r <- c(i4,i3,i2,i1)
+	r <- as.numeric(r)
+	names(r) <- c("xmin", "xmax", "ymin", "ymax")
+	return(r)
+}

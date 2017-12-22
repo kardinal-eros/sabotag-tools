@@ -4,6 +4,11 @@
 \docType{package}
 
 \alias{pdf-methods}
+\alias{layers-methods}
+\alias{show-methods}
+\alias{plot-methods}
+\alias{extent2polygon-methods}
+\alias{grid-methods}
 
 \title{
 \packageTitle{sabotag}

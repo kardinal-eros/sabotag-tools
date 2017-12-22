@@ -7,15 +7,15 @@
 \alias{show}
 \alias{pdf}
 
-\alias{plot-methods}
 \alias{plot,Background-method}
 \alias{plot,Background,missing-method}
 
-\alias{show-methods}
 \alias{show,Background-method}
 
 \alias{pdf,Background-method}
 
+\alias{grid,Background-method}
+\alias{layers,Background-method}
 
 \title{
 Configure a Map Background
@@ -23,7 +23,7 @@ Configure a Map Background
 
 \description{
   A simple function to collect data for a map background and methods for class
-  \code{"Background"}.
+  \code{"Background"} representing such a collection..
 }
 \usage{
 background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
@@ -34,7 +34,13 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
 
 \S4method{show}{Background}(object)
 
+\S4method{layers}{Background}(object, ...)
+
+\S4method{grid}{Background}(object)
+
 \S4method{pdf}{Background}(object, file, width, height, dingbats = FALSE, ...)
+
+
 }
 
 \arguments{
@@ -42,55 +48,67 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
 Extent object as defined in \pkg{raster}. See also \code{\link{pretty}}.
 }
   \item{waters}{
-Include water bodies (rivers and lakes) from package \pkg{sabotagdata}.
-See \code{\link[sabotagdata:ecrins]{ecrins}}.
+    Include water bodies (rivers and lakes) from package \pkg{sabotagdata}.
+    See \code{\link[sabotagdata:ecrins]{ecrins}}.
 }
   \item{reliefmap}{
-Include a colored relief map water from package \pkg{sabotagdata}.
-See \code{\link[sabotagdata:relief]{relief}}
+    Include a colored relief map water from package \pkg{sabotagdata}.
+    See \code{\link[sabotagdata:relief]{relief}}.
 }
   \item{gridlines}{
-Include grid as lines additional to polygon grid.
+    Include grid as lines additional to polygon grid. Defaults to \verb{TRUE}.
 }
   \item{pretty}{
-Recalculate extent using \code{\link{pretty}}.
+    Recalculate extent using \code{\link{pretty}}.
 }
   \item{add}{
-Argument passed on to \verb{pretty}.
+    Argument passed on to \verb{pretty}.
 }
   \item{tol}{
-Simplify geometries using package \pkg{rgeos}.
+    Simplify geometries using package \pkg{rgeos}. See \code{\link{gSimplify}}.
 }
   \item{strahler}{
-Subset rivers with Strahler stream order.
+    Subset rivers with Strahler stream order. See
+    \code{\link[sabotatgdata:rivers]{rivers}}.
 }
   \item{score}{
-Subset lakes by lake score.
+    Subset lakes by lake score.
 }
   \item{x, object}{
-\verb{Background} object.
+    \verb{Background} object.
 }
   \item{mar}{
-Add margins (see \code{\link{par}}).
+    Add margins (see \code{\link{par}}).
 }
   \item{plain}{
-Do not plot anything but open plotting window.
+    Do not plot anything but open plotting window.
 }
   \item{frame}{
-Draw a frame around figure.
+    Draw a frame around figure.
 }
   \item{col}{
-Color of water bodies. If missing an internal default is applied.
+    Color of water bodies. If missing an internal default is applied.
 }
   \item{file, width, height, dingbats}{
     Arguments for pdf. See \code{\link[grDevices:pdf]{pdf}}.
 }
   \item{...}{
-To be passed to functions. Experimental.
+    To be passed to functions. Experimental.
 }
 }
+
 \details{
-\verb{background} returns an object where all layers are cropped to a common extent.
+\itemize{
+  \item
+    \verb{background} returns an object where all layers are cropped to a common
+    extent. These layers can be accessed by \verb{layers(object)}, the method
+    returns a list. \verb{layers(x)$grid} returns what \verb{floragrid} calculated
+    on the input extent.
+  \item
+    \verb{grid} returns the grid of objects of class \verb{background}.
+  \item
+    \verb{pdf} creates PDF output.
+}  
 }
 \value{
 An object of class \verb{background}. A list with elements of class Spatial*.
