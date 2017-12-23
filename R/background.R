@@ -7,6 +7,14 @@ function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FA
 	extent <- extent(extent)
 	stopifnot(inherits(extent, "Extent"))
 	
+	#	matches data
+	#waters <- gOverlaps(
+	#		extent2polygon(extent),
+	#		extent2polygon(extent(sabotagdata::rivers)))
+	#reliefmap <- gOverlaps(
+	#		extent2polygon(extent),
+	#		extent2polygon(extent(sabotagdata::relief)))
+				
 	if (pretty) {
 		e <- pretty(extent, resolution = "GRID") # calculated extent
 	} else {

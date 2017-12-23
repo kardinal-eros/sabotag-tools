@@ -9,6 +9,8 @@
 \alias{plot-methods}
 \alias{extent2polygon-methods}
 \alias{grid-methods}
+\alias{margin-methods}
+\alias{labelmargin-methods}
 
 \title{
 \packageTitle{sabotag}

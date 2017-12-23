@@ -1,10 +1,11 @@
-\name{formatGridcell}
+\name{Gridcell}
+
 \alias{formatGridcell}
 \alias{deparseGridcell}
 \alias{dimGridcell}
 
 \title{
-Format Grid Cell Identifier
+Grid Cell Identifier
 }
 
 \description{
@@ -22,7 +23,7 @@ dimGridcell(x)
 \arguments{
   \item{x}{
     Vector to be coerced to character. For \verb{dimGridcell} an object of
-    class \verb{"Background"}
+    class \verb{"Background"}. For \verb{outer} an \verb{"Extent"} object.
   }
   \item{sep}{
     Separator.

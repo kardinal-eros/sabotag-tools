@@ -50,7 +50,7 @@ setMethod("grid",
 dimGridcell <- 
 function (x) {
 	stopifnot(inherits(x, "Background"))
-	x <- grid(x)$GRIDCELL
+	x <- deparseGridcell(grid(x)$GRIDCELL)
 	i1 <- x[ which.max(x[ ,4 ]), 4 ]
 	i2 <- x[ which.min(x[ ,4 ]), 4 ]
 	i3 <- x[ which.max(x[ ,5 ]), 5 ]

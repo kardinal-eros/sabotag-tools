@@ -100,12 +100,15 @@ function (extent, resolution = "CELL", frame = TRUE, coarse = FALSE) {
 
 #	tiock marks based on line grid
 ticks <- 
-function (extent, resolution = "GRID", coarse = FALSE) {
+function (extent, resolution = "GRID", coarse = FALSE, ...) {
 	l <- floragridlines(extent, resolution = resolution, coarse = coarse)
 	xy <- coordinates(l)
 	h <- do.call("rbind", xy[[ 1 ]])
 	v <- do.call("rbind", xy[[ 2 ]])
-	
+
+	if (resolution == "GRID") { xx <- 10; yy <- 6 }	
+	if (resolution == "CELL") { xx <-  5; yy <- 3 }	
+		
 	#	horizontal ticks along y axis
 	#	seperate left (l) and right (r)
 	hx <- h[ ,1 ]
@@ -114,8 +117,8 @@ function (extent, resolution = "GRID", coarse = FALSE) {
 	hl <- hx == hr[ 1 ]
 	hr <- hx == hr[ 2 ]
 
-	segments(x0 = hx[ hl ], y0 = hy[ hl ], x1 = hx[ hl ] + 10 / 60, y1 = hy[ hl ])
-	segments(x0 = hx[ hr ], y0 = hy[ hr ], x1 = hx[ hr ] - 10 / 60, y1 = hy[ hr ])
+	segments(x0 = hx[ hl ], y0 = hy[ hl ], x1 = hx[ hl ] + xx / 60, y1 = hy[ hl ], ...)
+	segments(x0 = hx[ hr ], y0 = hy[ hr ], x1 = hx[ hr ] - xx / 60, y1 = hy[ hr ], ...)
 	
 	#	vertical ticks along x axis
 	#	seperate top (t) and bottom (b)
@@ -125,6 +128,6 @@ function (extent, resolution = "GRID", coarse = FALSE) {
 	vt <- vy == vr[ 1 ]
 	vb <- vy == vr[ 2 ]
 	
-	segments(x0 = vx[ vt ], y0 = vy [ vt ], x1 = vx[ vt ], y1 = vy[ vt ] + 6 / 60)
-	segments(x0 = vx[ vb ], y0 = vy [ vb ], x1 = vx[ vb ], y1 = vy[ vb ] - 6 / 60)
+	segments(x0 = vx[ vt ], y0 = vy [ vt ], x1 = vx[ vt ], y1 = vy[ vt ] + yy / 60, ...)
+	segments(x0 = vx[ vb ], y0 = vy [ vb ], x1 = vx[ vb ], y1 = vy[ vb ] - yy / 60, ...)
 }

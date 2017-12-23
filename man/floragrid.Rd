@@ -16,7 +16,7 @@ floragrid(extent, resolution = "CELL")
 
 floragridlines(extent, resolution = "CELL", frame = TRUE, coarse = FALSE)
 
-ticks(extent, resolution = "GRID", coarse = FALSE)
+ticks(extent, resolution = "GRID", coarse = FALSE, ...)
 }
 
 \arguments{
@@ -35,6 +35,10 @@ ticks(extent, resolution = "GRID", coarse = FALSE)
 }
   \item{coarse}{
     Return only grid lines at degrees in whole numbers (integer).
+}
+  \item{...}{
+    Arguments passed to \code{\link{segments}} to draw ticks. Especially
+    arguments col, lty, and lwd.
 }
 }
 
