@@ -85,11 +85,11 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
   \item{score}{
     Subset lakes by lake score.
 }
-  \item{x, object}{
+  \item{object}{
     \verb{Background} object.
 }
   \item{mar}{
-    Add margins (see \code{\link{par}}).
+    Add margins (see \code{\link{par}}). The default is to set all margins to zero.
 }
   \item{plain}{
     Do not plot anything but open plotting window.
