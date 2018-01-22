@@ -15,7 +15,7 @@ Find nice interval in grid schema.
 }
 
 \usage{
-\S4method{pretty}{Extent}(x, resolution, add = 0, mar = c(0,0,0,0), ...)
+\S4method{pretty}{Extent}(x, resolution, add = 0, mar = c(0,0,0,0), verbose = FALSE, ...)
 }
 
 \arguments{
@@ -42,6 +42,10 @@ Find nice interval in grid schema.
   \item{...}{
 Not used.
 }
+  \item{verbose}{
+    Print used resultion.
+  }
+
 }
 
 \details{

@@ -1,5 +1,5 @@
 safapi <-
-function (lng, lat, layers, format = "txt", service = "geoapi", server = "46.252.27.126", key = "574nd0r754n4ly53", sp = FALSE) {
+function (lng, lat, layers, format = "txt", service = "geoapi", server = "api.standortsanalyse.net", key = "574nd0r754n4ly53", sp = FALSE) {
 	requireNamespace("jsonlite")
 	
 	#	server <- "quercus"
@@ -16,10 +16,13 @@ function (lng, lat, layers, format = "txt", service = "geoapi", server = "46.252
 	
 	layers <- match.arg(layers, LAYERS, several.ok = TRUE)
 	format <- match.arg(format, FORMAT, several.ok = FALSE)
-
+	
+	if (sp) {
+		format <- "json"
+	}
 	url <- paste0(
-		"http://", server,
-		"/api/api.php?service=", service,
+		"https://", server,
+		"/api.php?service=", service,
 		"&apikey=", 	key,
 		"&lat=", lng, # lat,
 		"&long=", lat, # lng, # maybe rename in API to lng,
@@ -32,7 +35,7 @@ function (lng, lat, layers, format = "txt", service = "geoapi", server = "46.252
 	} else {		
 		r  <- switch(format,
 			txt =  { r <- readLines(url) },
-			csv =  { r <- read.csv(url) },
+			csv =  { r <- read.csv2(url) },
 			json = { r <- jsonlite::fromJSON(url) })
 	}
 	return(r)

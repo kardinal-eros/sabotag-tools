@@ -12,7 +12,7 @@ Create grid based on \sQuote{Extent} object. See \link[raster]{extent} to create
 }
 
 \usage{
-floragrid(extent, resolution = "CELL")
+floragrid(extent, resolution = "CELL", verbose = FALSE)
 
 floragridlines(extent, resolution = "CELL", frame = TRUE, coarse = FALSE)
 
@@ -40,6 +40,9 @@ ticks(extent, resolution = "GRID", coarse = FALSE, ...)
     Arguments passed to \code{\link{segments}} to draw ticks. Especially
     arguments col, lty, and lwd.
 }
+  \item{verbose}{
+    Print used resultion.
+  }
 }
 
 \details{

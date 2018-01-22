@@ -59,7 +59,7 @@ if (!isGeneric("pretty")) {
 
 setMethod("pretty",
 	signature(x = "Extent"),
-	function (x, resolution, add = 0, mar = c(0,0,0,0), ...) {
+	function (x, resolution, add = 0, mar = c(0,0,0,0), verbose = FALSE, ...) {
 		if (missing(resolution)) {
 			resolution <- "GRID"
 			message("set GRID (10' x 6') as default resolution ")
@@ -72,7 +72,9 @@ setMethod("pretty",
 		if (resolution == "GRID") { xx <- 10; yy <- 6 }	
 		if (resolution == "CELL") { xx <-  5; yy <- 3 }
 					
-		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")		
+		if (verbose) {
+			message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
+		}	
 		
 		addx <- addy <- 0
 		if (add != 0) {

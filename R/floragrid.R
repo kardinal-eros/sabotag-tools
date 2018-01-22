@@ -1,6 +1,6 @@
 #	polygon grid
 floragrid <-
-function (extent, resolution = "CELL") {
+function (extent, resolution = "CELL", verbose = FALSE) {
 	#	test and set arguments
 	if (missing(extent)) {
 		stop("please supply exent", call. = FALSE)
@@ -20,7 +20,9 @@ function (extent, resolution = "CELL") {
 	}
 	if (resolution == "CELL") { xx <-  5; yy <- 3 }
 
-	message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
+	if (verbose) {
+		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
+	}	
 	
 	#	build grid using raster
 	r <- raster(e,
