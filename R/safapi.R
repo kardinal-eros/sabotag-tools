@@ -9,7 +9,7 @@ function (lng, lat, layers, format = "txt", service = "geoapi", server = "api.st
 	stopifnot(is.numeric(lng))
 	stopifnot(is.numeric(lat))
 		
-	LAYERS <- c("bundesland","bezirk","gemeinde","gebirge","quadrant","corine","gzert")
+	LAYERS <- c("bundesland","bezirk","gemeinde","msm","gebirge","quadrant","corine","gzert")
 	FORMAT <- c("txt", "csv", "json")
 	
 	if (missing(layers)) layers <- LAYERS

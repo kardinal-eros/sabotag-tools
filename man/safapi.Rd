@@ -22,7 +22,7 @@ Latitude. Geographic coordinates (e.g. 14.136882)
 Longitude. Geographic coordinates (e.g. 47.510895)
 }
   \item{layers}{
-Possible case insensitive choices are: \verb{bundesland}, \verb{bezirk}, \verb{gemeinde}, \verb{gebirge}, \verb{quadrant},\verb{corine}, and \verb{gzert}. If missing all layers are queried. Argument(s) may be abbreviated.
+Possible case insensitive choices are: \verb{bundesland}, \verb{bezirk}, \verb{gemeinde}, \verb{gebirge}, \verb{msm}, \verb{quadrant},\verb{corine}, and \verb{gzert}. If missing all layers are queried. Argument(s) may be abbreviated.
 }
   \item{format}{
 One out of \verb{"txt"}, \verb{"csv"}, \verb{"json"}.
