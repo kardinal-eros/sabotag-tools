@@ -30,10 +30,10 @@ function (x, ...) {
 }
 #	determine if extent is already in shape
 .isPretty <- 
-function (x, resolution) {
+function (x, resolution, verbose = FALSE) {
 	if (missing(resolution)) {
 		resolution <- "GRID"
-		# message("set CELL (5' x 3') as default resolution ")
+		if (verbose) message("set CELL (5' x 3') as default resolution ")
 	}
 		
 	if (resolution == "GRID") { xx <- 10; yy <- 6 }	
@@ -62,7 +62,7 @@ setMethod("pretty",
 	function (x, resolution, add = 0, mar = c(0,0,0,0), verbose = FALSE, ...) {
 		if (missing(resolution)) {
 			resolution <- "GRID"
-			message("set GRID (10' x 6') as default resolution ")
+			if (verbose) message("set GRID (10' x 6') as default resolution ")
 		}
 		
 		RESOLUTION <- c("GRID", "CELL")
@@ -72,9 +72,7 @@ setMethod("pretty",
 		if (resolution == "GRID") { xx <- 10; yy <- 6 }	
 		if (resolution == "CELL") { xx <-  5; yy <- 3 }
 					
-		if (verbose) {
-			message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
-		}	
+		if (verbose) message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
 		
 		addx <- addy <- 0
 		if (add != 0) {
@@ -90,13 +88,13 @@ setMethod("pretty",
 		
 		#	if TRUE just use add and mar
 		if (test) {
-			message("extent already in shape for resolution ", resolution)
+			if (verbose) message("extent already in shape for resolution ", resolution)
 		r <- raster::extent(c(
 			xmin(x) - addx - mar[ 2 ], xmax(x) + addx + mar[ 4 ],
 			ymin(x) - addy - mar[ 1 ], ymax(x) + addy + mar[ 3 ]))			
 		} else {
-		#	if FALSE find interval and use add and mar			
-			message("find pretty extent for resolution ", resolution)
+		#	if FALSE find interval and use add and mar
+			if (verbose) message("find pretty extent for resolution ", resolution)
 		r <- raster::extent(c(
 			.min(xmin(x), xx) - addx - mar[ 2 ], .max2(xmax(x), xx) + addx + mar[ 4 ],
 			.min(ymin(x), yy) - addy - mar[ 1 ], .max2(ymax(x), yy) + addy + mar[ 3 ]))

@@ -16,12 +16,12 @@ function (extent, resolution = "CELL", verbose = FALSE) {
 
 	if (resolution == "GRID") {
 		xx <- 10; yy <- 6
-		message("can't calculate propper GRIDCELL at resolution ", resolution)
 	}
 	if (resolution == "CELL") { xx <-  5; yy <- 3 }
 
 	if (verbose) {
 		message("use resolution ", resolution, " (", xx, "' x ", yy, "')")
+		message("can't calculate propper GRIDCELL at resolution ", resolution)		
 	}	
 	
 	#	build grid using raster
@@ -41,7 +41,7 @@ function (extent, resolution = "CELL", verbose = FALSE) {
 
 #	lines grid based on	polygon grid	
 floragridlines <-
-function (extent, resolution = "CELL", frame = TRUE, coarse = FALSE) {
+function (extent, resolution = "CELL", frame = TRUE, coarse = FALSE, verbose = FALSE) {
 
 	#	get nodes from polygon grid
 	r <- floragrid(extent = extent, resolution = resolution)
@@ -63,7 +63,7 @@ function (extent, resolution = "CELL", frame = TRUE, coarse = FALSE) {
 	v <- v[ order(v[ ,1 ]), ]
 	
 	if (coarse) {
-		message("coarse ", coarse)
+		if (verbose) message("coarse ", coarse)
 		#	find integer values (wohle numbers) in coordinates
 		#	and subset h and v coordiante pairs
 		i <- apply(h, 1, function (x) {
