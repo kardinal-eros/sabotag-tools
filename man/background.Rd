@@ -85,7 +85,7 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
   \item{score}{
     Subset lakes by lake score.
 }
-  \item{object}{
+  \item{x, object}{
     \verb{Background} object.
 }
   \item{mar}{

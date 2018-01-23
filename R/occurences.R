@@ -40,3 +40,27 @@ function (x, schema = c("taxon", "gridcell")) {
 }
 
 
+.plotOccurrences <-
+function (x, type, ...) {
+	
+	if (missing(type)) {
+		type = "ASIS"
+	}
+	TYPE <- c("ASIS","GRIDCELL")	
+	type <- match.arg(type, TYPE, several.ok = TRUE)
+			
+	
+	if (type == "GRIDCELL") {
+		x <- x[ !duplicated(x$gridcell), ]@data
+		coordinates(x) <- gridcell2lnglat(x$gridcell)
+		proj4string(x) <- CRS("+init=epsg:4326")
+	}
+
+	points(x, ...)
+}
+
+#	plot method
+setMethod("plot",
+	signature(x = "Occurrences", y = "missing"),
+	.plotOccurrences
+)

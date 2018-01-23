@@ -2,9 +2,13 @@
 
 \docType{methods}
 
+\alias{plot}
 \alias{occurrences}
 
 \alias{pdf,Occurrences-method}
+
+\alias{plot,Occurrences-method}
+\alias{plot,Occurrences,missing-method}
 
 \title{
 Create Occurrences
@@ -16,6 +20,8 @@ A simply constructor function for class \verb{"Occurrences"}.
 
 \usage{
 occurrences(x, schema = c("taxon", "gridcell"))
+
+\S4method{plot}{Occurrences}(x, type,  ...)
 
 \S4method{pdf}{Occurrences}(object, background, file, width, height, dingbats = FALSE, ...)
 }
@@ -33,6 +39,9 @@ Character. Columns to be searched for. Column \verb{"taxon"} (case independent) 
   \item{background}{
 An object of class \code{"Background"} to be used to set up plotting region with perfect alignment to background map when stacked graphically/visually.
 }
+  \item{type}{
+    Either \verb{ASIS} (coordinates) or \verb{GRIDCELL}.
+  }
   \item{file, width, height, dingbats}{
     Arguments for pdf. See \code{\link[grDevices:pdf]{pdf}}.
 }

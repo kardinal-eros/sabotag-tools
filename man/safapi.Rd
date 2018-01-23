@@ -11,7 +11,7 @@ Query \emph{Standortsanalyse} server to get locality description for a given lon
 
 \usage{
 safapi(lng, lat, layers, format = "txt", service = "geoapi",
-       server = "46.252.27.126", key = "574nd0r754n4ly53", sp = FALSE)
+       server = "api.standortsanalyse.net", key = "574nd0r754n4ly53", sp = FALSE)
 }
 
 \arguments{

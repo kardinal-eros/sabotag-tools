@@ -10,6 +10,7 @@ Class Occurrences.
 \section{Objects from the Class}{
 Objects should be created with function \code{\link{occurrences}}.
 }
+
 \section{Slots}{
   \describe{
     \item{\code{taxa}:}{Object of class \code{"character"} ~~ }
@@ -21,6 +22,7 @@ Objects should be created with function \code{\link{occurrences}}.
 %    \item{\code{proj4string}:}{Object of class \code{"CRS"} ~~ }
   }
 }
+
 \section{Extends}{
 Class \code{"\linkS4class{SpatialPointsDataFrame}"}, directly.
 Class \code{"\linkS4class{SpatialPoints}"}, by class "SpatialPointsDataFrame", distance 2.
@@ -28,13 +30,22 @@ Class \code{"\linkS4class{Spatial}"}, by class "SpatialPointsDataFrame", distanc
 Class \code{"\linkS4class{SpatialVector}"}, by class "SpatialPointsDataFrame", distance 3.
 Class \code{"\linkS4class{SpatialPointsNULL}"}, by class "SpatialPointsDataFrame", distance 3.
 }
+
 \section{Methods}{
-No methods defined for the class so far. Note, all Spatial method for \verb{SpatialPointsDataFrame} apply.
+  \describe{
+    \item{plot}{
+      \code{signature(x = "Occurrences", type, ...)}:
+      Plot object (\code{\link{plot}}).
+    }
+  }
 }
+
 \author{
 Roland Kaiser
 }
+
 \examples{
 showClass("Occurrences")
 }
+
 \keyword{classes}

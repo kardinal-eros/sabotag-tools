@@ -14,7 +14,7 @@ Create grid based on \sQuote{Extent} object. See \link[raster]{extent} to create
 \usage{
 floragrid(extent, resolution = "CELL", verbose = FALSE)
 
-floragridlines(extent, resolution = "CELL", frame = TRUE, coarse = FALSE)
+floragridlines(extent, resolution = "CELL", frame = TRUE, coarse = FALSE, verbose = FALSE)
 
 ticks(extent, resolution = "GRID", coarse = FALSE, ...)
 }
