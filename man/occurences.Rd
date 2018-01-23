@@ -2,7 +2,6 @@
 
 \docType{methods}
 
-\alias{plot}
 \alias{occurrences}
 
 \alias{pdf,Occurrences-method}
