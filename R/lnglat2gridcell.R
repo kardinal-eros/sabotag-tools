@@ -12,6 +12,10 @@ function (x, y) {
 	
 	stopifnot(is.numeric(x)); stopifnot(is.numeric(y))	
 	
+	#	add jitter
+	x <- x + 0.000001
+	y <- y + 0.000001
+	
 	#	grid cell where cell is zero (length 5)
 	GRID  <- ( (floor(10 * (56 - y) ) * 1000) ) + ( floor(6 * (x - 6) + 2) * 10 )
 	#	find cell
