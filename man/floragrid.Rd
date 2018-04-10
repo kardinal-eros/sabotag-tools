@@ -23,7 +23,7 @@ ticks(extent, resolution = "GRID", coarse = FALSE, ...)
   \item{extent}{
   An object where an \code{\link{extent}} method exists or a Spatial* object
   defined in package \pkg{sp}. \verb{ticks} is a plotting method, whereas
-  \verb{floragridlines} returns objects to be plotted or anylsed. 
+  \verb{floragridlines} returns objects to be plotted or analysed. 
 }
   \item{resolution}{
     One of \verb{"GRID"} or \verb{"CELL"}. The defaults are appropriate in most cases.

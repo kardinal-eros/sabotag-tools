@@ -32,16 +32,16 @@ function (object) {
 	
 	#	get labels for positions
 	#	left
-	r1 <- x[ xy[ ,1 ] == xmin(x), ]
+	r1 <- x[ round(xy[ ,1 ], 6) == round(xmin(x), 6), ]
 	r1$LABEL <- r1$ROW
 	#	top
-	r2 <- x[ xy[ ,2] == ymax(x), ]
+	r2 <- x[ round(xy[ ,2 ], 6) == round(ymax(x), 6), ]
 	r2$LABEL <- r2$COLUMN
 	#	right
-	r3 <- x[ xy[ ,1 ] == xmax(x), ]
+	r3 <- x[ round(xy[ ,1 ], 6) == round(xmax(x), 6), ]
 	r3$LABEL <- r3$ROW
 	#	bottom
-	r4 <- x[ xy[ ,2] == ymin(x), ]
+	r4 <- x[ round(xy[ ,2 ], 6) == round(ymin(x), 6), ]
 	r4$LABEL <- r4$COLUMN
 	
 	#	bind and remove duplicates, they occur at corners
