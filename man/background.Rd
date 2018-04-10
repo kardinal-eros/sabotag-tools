@@ -38,7 +38,7 @@ Configure a Map Background
 background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
            pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3)
 
-\S4method{plot}{Background}(x, mar = rep(0,4), plain = FALSE,
+\S4method{plot}{Background}(x, mar = rep(0,4), plain = FALSE, lwd.rivers = 1, add = FALSE,
     frame = TRUE, col,  ...)
 
 \S4method{show}{Background}(object)
@@ -100,6 +100,15 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
   \item{col}{
     Color of water bodies. If missing an internal default is applied.
 }
+  \item{add}{
+    Add to existimng plot.
+}
+
+  \item{lwd.rivers}{
+    Linewidth for rivers. Multiplier to normalized strahler values.
+}
+
+
   \item{file, width, height, dingbats}{
     Arguments for pdf. See \code{\link[grDevices:pdf]{pdf}}.
 }

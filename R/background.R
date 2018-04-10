@@ -90,7 +90,7 @@ setMethod("show",
 #}
 
 .plotBackground <-
-function (x, mar = rep(0,4), plain = FALSE, frame = TRUE, col,  ...) {
+function (x, mar = rep(0,4), plain = FALSE, frame = TRUE, col, lwd.rivers = 1, add = FALSE, ...) {
 	#stopifnot(inherits(x, "background"))
 	if (missing(col)) {
 		col <- rgb(31, 120, 180, 255, maxColorValue = 255)
@@ -104,13 +104,14 @@ function (x, mar = rep(0,4), plain = FALSE, frame = TRUE, col,  ...) {
 		#	no margins
 		plot(extent2polygon(x@layers$extent), axes = FALSE, xaxs = "i", yaxs = "i", lty = 0)
 	} else {
-		plot(extent2polygon(x@layers$extent), axes = FALSE, xaxs = "i", yaxs = "i", lty = 0)
+		plot(extent2polygon(x@layers$extent), axes = FALSE, xaxs = "i", yaxs = "i", lty = 0,
+			add = ifelse(add, TRUE, FALSE))
 		#	plot layers	
 		if (!is.null(x@layers$relief)) {
 			plotRGB(x@layers$relief, add = TRUE, ...)
 		}
 		if (!is.null(x@layers$rivers)) {			
-			lines(x@layers$rivers, col = col, lwd = .normalize(x@layers$rivers$STRAHLER) + 1, ...)
+			lines(x@layers$rivers, col = col, lwd = c(.normalize(x@layers$rivers$STRAHLER) + 1) * lwd.rivers, ...)
 		}
 		if (!is.null(x@layers$lakes)) {						
 			plot(x@layers$lakes, add = TRUE, col = col, border = NA, ...)
