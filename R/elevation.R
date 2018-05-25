@@ -11,7 +11,7 @@
 		stop("please supply numeric vales for 'lng' and 'lat'", .call = FALSE)
 	} else {
 		lng <- format(lng, nsmall = nsmall)
-		lat <- format(lng, nsmall = nsmall)
+		lat <- format(lat, nsmall = nsmall)
 	}
 	#	test length of arguments, if appropiate, get number of points
 	if (length(lng) != length(lat)) {
