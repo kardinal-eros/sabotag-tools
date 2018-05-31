@@ -48,6 +48,6 @@ function (object, ...) {
 setMethod("labelmargin",
 	signature(object = "Background"),
 	function (object, ...) {
-		.labelmargin(object)
+		.labelmargin(object, ...)
 	}
 )
