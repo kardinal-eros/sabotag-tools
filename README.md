@@ -29,15 +29,23 @@ The software is aimed at botanists concerned with floristic mapping. The package
 
 *    [`formatGridcell`](formatGridcell.html) and [`deparseGridcell`](deparseGridcell.html) : Work with grid cell identifier.  
 
-*    [`background`](background.html) : Configure a map background with topography, waterbodies and mapping grid just by passing a map extent. This functions uses data set provided by package list("sabotagdata") .  
+*    [`background`](background.html) : Configure a map background with topography, waterbodies and mapping grid just by passing a map extent. This functions uses data sets provided by package [`sabotagdata`](https://github.com/kardinal-eros/sabotag-data).  
+
+*    [`occurrences`](occurrences.html) : Distribution data with associated plot methods.  
+
+*    [`pretty`](pretty.html) : Find nice interval in grid schema (`floragrid`).  
+
+*    [`ticks`](occurrences.html) : Draw ticks based on `floragrid`.  
+
+*    [`margin`}(margin.html) and [`labelmargin`](labelmargin) : Annotate plot margins.  
 
 *    [`elevation`](elevation.html) : query [Open-Elevation](http://www.open-elevation.com)  server for elevation data.  
 
 *    [`nominatim2`](nominatim2.html) : query [OpenStreetMap](http://www.wiki.openstreetmap.org/wiki/Nominatim)  server for locality descriptions.  
 
-*    [`zobodat`](zobodat.html) : query [Zobodat](http://www.zobodat.at/belege.php)  voucher data base.  
+*    [`zobodat`](zobodat.html) : query [Zobodat](http://www.zobodat.at/belege.php) voucher data base.  
 
-*    [`bergfex`](bergfex.html) : query [Bergfex](http://www.bergfex.at)  server for Austrian toponyms.  
+*    [`bergfex`](bergfex.html) : query [Bergfex](http://www.bergfex.at) server for Austrian toponyms.  
 
 *    [`safapi`](safapi.html) : query locality description (reverse geocoding) using Albin Blaschka's private server. 
 
