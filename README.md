@@ -11,19 +11,15 @@ Build status
 <!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sabotag-tools)](http://cran.r-project.org/package=sabotag-tools) -->
 <!-- Rd2markdown("/Users/roli/Documents/sabotag-tools/man/sabotag-tools-package.Rd", "/Users/roli/Documents/sabotag-tools/package.md") -->
 
-## Details
+Details
+-------
 
 
- An R-package providing tools for the »Salzburger Botanische
- Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html) .
- It is aimed at botanists concerned with floristic mapping. The packages
- provides classes to handle distribution data. They are explicitly
- Spatial and built upon packages sp and raster .
- Time is managed properly, as well as customizable symbology.
+An R-package providing tools for the »Salzburger Botanische Arbeitsgemeinschaft« [(SaBotAg)](http://www.hausdernatur.at/sabotag.html).
+The software is aimed at botanists concerned with floristic mapping. The package provides classes to handle distribution and map background data built upon packages sp and raster. Time is managed properly, as well as customizable symbology.
  
  The package has the following functionality.
  
-   
 
 *    [`floragrid`](floragrid.html) and [`floragridlines`](floragridlines.html) : Create mapping grid for the recording of the vascular plant flora in Central Europe ( list("Kartierung der Flora Mitteleuropas") ) according to Niklfeld (1971); in Austria generally known as list("Raster der floristischen\n", "    Kartierung") or briefly list("(Floren-)Quadranten") .  
 
@@ -45,14 +41,18 @@ Build status
 
 *    [`safapi`](safapi.html) : query locality description (reverse geocoding) using Albin Blaschka's private server. 
 
+See the example [`here`](https://github.com/kardinal-eros/sabotagmaps/blob/master/example.md) get an idea of what can be achieved with the package.
 
-## Author
+
+Author
+------
 
 
  Maintainer: Roland Kaiser kardinal.eros@gmail.com 
 
 
-## References
+References
+----------
 
 
  Niklfeld, H. (1971): Bericht über die Kartierung der Flora Mitteleuropas. Taxon 20: 545-571
