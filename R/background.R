@@ -1,5 +1,5 @@
 background <- 
-function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3) {
+function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3, ecrins2 = FALSE) {
 	requireNamespace("sabotagdata")
 	requireNamespace("rgeos")	
 	
@@ -26,8 +26,14 @@ function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FA
 	if (waters) {
 		#data("rivers", package = "sabotagdata")
 		#data("lakes", package = "sabotagdata")
-		rivers <- sabotagdata::rivers
-		lakes <- sabotagdata::lakes		
+		if (ecrins2) {
+			rivers <- sabotagdata::rivers2
+			lakes <- sabotagdata::lakes2	
+		} else {
+			rivers <- sabotagdata::rivers
+			lakes <- sabotagdata::lakes				
+		}
+		
 		w1 <- crop(rivers[rivers$STRAHLER > strahler, ], e) # rivers
 		w2 <- crop(lakes[lakes$SCORE > score, ], e)      # lakes
 		#	simplify geometry

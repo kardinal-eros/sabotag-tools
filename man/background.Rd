@@ -62,6 +62,10 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
     Include water bodies (rivers and lakes) from package \pkg{sabotagdata}.
     See \code{\link[sabotagdata:ecrins]{ecrins}}.
 }
+  \item{ecrins2}{
+    Use bigger dataset (Austria and neighbours)
+    See \code{\link[sabotagdata:ecrins2]{ecrins2}}.
+}
   \item{reliefmap}{
     Include a colored relief map water from package \pkg{sabotagdata}.
     See \code{\link[sabotagdata:relief]{relief}}.
