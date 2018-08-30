@@ -36,7 +36,7 @@ Configure a Map Background
 }
 \usage{
 background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
-           pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3)
+           pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3, ecrins2 = FALSE)
 
 \S4method{plot}{Background}(x, mar = rep(0,4), plain = FALSE, lwd.rivers = 1, add = FALSE,
     frame = TRUE, col,  ...)
@@ -77,7 +77,7 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
     Recalculate extent using \code{\link{pretty}}.
 }
   \item{add}{
-    Argument passed on to \verb{pretty}.
+    Argument passed on to \verb{pretty} or add to existing plot \verb{plot}.
 }
   \item{tol}{
     Simplify geometries using package \pkg{rgeos}. See \code{\link{gSimplify}}.
@@ -105,13 +105,12 @@ background(extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE,
     Color of water bodies. If missing an internal default is applied.
 }
   \item{add}{
-    Add to existimng plot.
+    
 }
 
   \item{lwd.rivers}{
     Linewidth for rivers. Multiplier to normalized strahler values.
 }
-
 
   \item{file, width, height, dingbats}{
     Arguments for pdf. See \code{\link[grDevices:pdf]{pdf}}.
