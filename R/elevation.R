@@ -1,3 +1,4 @@
+#	think about skipping this functions as server seems to be very slow from time to time
 #	query Open-Elevation API
 .elevation <- function (lng, lat, sp, nsmall = 6) {
 	requireNamespace("jsonlite")

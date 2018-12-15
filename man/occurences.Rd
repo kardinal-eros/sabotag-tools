@@ -9,6 +9,9 @@
 \alias{plot,Occurrences-method}
 \alias{plot,Occurrences,missing-method}
 
+\alias{text,Occurrences-method}
+\alias{text,Occurrences}
+
 \title{
 Create Occurrences
 }
@@ -21,6 +24,8 @@ A simply constructor function for class \verb{"Occurrences"}.
 occurrences(x, schema = c("taxon", "gridcell"))
 
 \S4method{plot}{Occurrences}(x, type,  ...)
+
+\S4method{text}{Occurrences}(x, type,  ...)
 
 \S4method{pdf}{Occurrences}(object, background, file, width, height, dingbats = FALSE, ...)
 }
