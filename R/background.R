@@ -1,7 +1,7 @@
 background <- 
 function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FALSE, add = 0, tol = 0.005, strahler = 4, score = 3, ecrins2 = FALSE) {
 	requireNamespace("sabotagdata")
-	requireNamespace("rgeos")	
+	requireNamespace("terra")	
 	
 	#	for safty
 	extent <- extent(extent)
@@ -40,8 +40,8 @@ function (extent, waters = TRUE, reliefmap = TRUE, gridlines = TRUE, pretty = FA
 		if (tol > 0) {
 			w1x <- w1$STRAHLER # save variable
 			w2x <- w2$SCORE    # save variable			
-			w1 <- rgeos::gSimplify(w1, tol = tol, topologyPreserve = TRUE)
-			w2 <- rgeos::gSimplify(w2, tol = tol, topologyPreserve = TRUE)
+			w1 <- simplifyGeom(w1, tolerance = tol, preserveTopology = TRUE)
+			w2 <- simplifyGeom(w2, tolerance = tol, preserveTopology = TRUE)
 			w1 <- SpatialLinesDataFrame(w1, data.frame(STRAHLER = w1x), match.ID = FALSE)
 			w2 <- SpatialPolygonsDataFrame(w2, data.frame(SCORE = w2x), match.ID = FALSE)			
 		}		

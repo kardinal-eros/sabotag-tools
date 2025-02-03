@@ -89,13 +89,13 @@ setMethod("pretty",
 		#	if TRUE just use add and mar
 		if (test) {
 			if (verbose) message("extent already in shape for resolution ", resolution)
-		r <- raster::extent(c(
+		r <- terra::ext(c(
 			xmin(x) - addx - mar[ 2 ], xmax(x) + addx + mar[ 4 ],
 			ymin(x) - addy - mar[ 1 ], ymax(x) + addy + mar[ 3 ]))			
 		} else {
 		#	if FALSE find interval and use add and mar
 			if (verbose) message("find pretty extent for resolution ", resolution)
-		r <- raster::extent(c(
+		r <- terra::ext(c(
 			.min(xmin(x), xx) - addx - mar[ 2 ], .max2(xmax(x), xx) + addx + mar[ 4 ],
 			.min(ymin(x), yy) - addy - mar[ 1 ], .max2(ymax(x), yy) + addy + mar[ 3 ]))
 		}

@@ -25,7 +25,7 @@ setMethod("extent2polygon",
 )
 
 setMethod("extent2polygon",
-	signature(object = "Raster"),
+	signature(object = "SpatRaster"),
 	function (object, ...) {
 		.extent2polygon(extent(object),
 			p4s = proj4string(object))

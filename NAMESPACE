@@ -1,9 +1,7 @@
 exportPattern("^[[:alpha:]]+")
 
 import("methods")
-import("raster")
 import("sp")
-import("rgeos")
 import("curl")
 import("sabotagdata")
 importFrom("utils", "read.csv")
@@ -16,6 +14,7 @@ importFrom("graphics", "par")
 importFrom("graphics", "segments")
 importFrom("graphics", "points")
 #importFrom("sabotagdata", "ecrins")
+#import("terra")
 
 ## Registration of S3 methods
 
